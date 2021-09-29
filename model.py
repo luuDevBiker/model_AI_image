@@ -8,8 +8,13 @@ import numpy as np
 #  mảng các nhãn kết quả
 arr_name_lable = ['số 1','số 2','số 3','số 4','số 5','số 6','số 7','số 8','số 9']
 #  load model đã được train sẵn
-model_CP2 = tf.keras.models.load_model(r'C:\Users\admin\Documents\model_AI\img_train_CP2.h5')
-#  hàm in nhãn dự đoán được từ model
+model_CP2 = tf.keras.models.load_model(r'C:\Users\admin\OneDrive\Tài liệu\model_AI\img_train_CP2.h5')
+
+'''
+hàm in nhãn dự đoán được từ model
+nhận vào mảng kết quả dự đoán của hàm "array_result" 
+trả về một chuỗi thông tin gồm tên số tương ứng với kết quả dự đoán của mảng và đề nghị kiểm tra lại nếu phần trăm dự đoán bé hơn 85%
+'''
 def plot_image(predictions_array):
   predict_label = np.argmax(predictions_array)
   if 100*np.max(predictions_array)< 85:
@@ -40,15 +45,21 @@ def result_array_image(array_path):
         # xóa đừng bao của nét chữ - làm mảnh nét chữ
         img = cv2.erode(img, kernel, iterations=4)
         img = ~cv2.resize(img, (28, 28))
-        # reshape kich thước để phù hợp định dạng ảnh với model
         img = img.reshape(1, 28, 28, 1)
         # thêm ảnh vào mảng ảnh
         array_image.append(img)
     return  array_image
 """
-hàm nhận giá trị đầu vào là một mảng ảnh sau khi nhận diện sẽ trả về một mảng kết quả
+hàm nhận giá trị đầu vào là một mảng ảnh được trả về từ hàm "result_array_image"
+sau khi nhận diện sẽ trả về một mảng gồm các mảng kết quả kết quả 
 """
 def array_result(array_image):
+    array_result = []
     #  dùng model để nhận diện ảnh đưa vào
-    array_result_model = model_CP2.predict(array_image)
-    return array_result_model
+    for i in range(len(array_image)):
+      # reshape kich thước để phù hợp định dạng ảnh với model
+      result = model_CP2.predict(array_image[i])
+      array_result.append(result)
+    return array_result
+
+
