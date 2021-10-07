@@ -48,17 +48,17 @@ class Ui_MainWindow(object):
         item.setText("kết quả")
         self.tbKetqua.setItem(0, 1, item)
 
-            for i in range(len(_path)):
-                result = md.plot_image(array_results[i])
-                row = self.tbKetqua.rowCount()
-                item = QtWidgets.QTableWidgetItem()
-                icon4 = QtGui.QIcon()
-                icon4.addPixmap(QtGui.QPixmap(_path[i]), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-                item.setIcon(icon4)
-                self.tbKetqua.setItem(row,0, item)
-                item = QtWidgets.QTableWidgetItem()
-                item.setText(result)
-                self.tbKetqua.setItem(row,1,item)
+        for i in range(len(_path)):
+            result = md.plot_image(array_results[i])
+        row = self.tbKetqua.rowCount()
+        item = QtWidgets.QTableWidgetItem()
+        icon4 = QtGui.QIcon()
+        icon4.addPixmap(QtGui.QPixmap(_path[i]), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        item.setIcon(icon4)
+        self.tbKetqua.setItem(row, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        item.setText(result)
+        self.tbKetqua.setItem(row, 1, item)
         print('số cột = ',self.tbKetqua.columnCount())
         print('số hàng = ',self.tbKetqua.rowCount())
     def setupUi(self, MainWindow):
