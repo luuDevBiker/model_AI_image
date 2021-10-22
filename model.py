@@ -8,7 +8,7 @@ import numpy as np
 #  mảng các nhãn kết quả
 arr_name_lable = ['số 1','số 2','số 3','số 4','số 5','số 6','số 7','số 8','số 9']
 #  load model đã được train sẵn
-model_CP2 = tf.keras.models.load_model(r'C:\Users\admin\OneDrive\Tài liệu\model_AI\img_train_CP2.h5')
+model_CP2 = tf.keras.models.load_model(r'C:\Users\admin\OneDrive\Documents\model_AI\img_train_CP2.h5')
 
 '''
 hàm in nhãn dự đoán được từ model
