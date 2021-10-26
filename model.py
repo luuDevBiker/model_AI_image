@@ -8,7 +8,7 @@ import numpy as np
 #  mảng các nhãn kết quả
 arr_name_lable = ['số 1','số 2','số 3','số 4','số 5','số 6','số 7','số 8','số 9']
 #  load model đã được train sẵn
-model_CP2 = tf.keras.models.load_model(r'C:\Users\admin\OneDrive\Documents\model_AI\img_train_CP2.h5')
+model_CP2 = tf.keras.models.load_model(r'img_train_CP2.h5')
 
 '''
 hàm in nhãn dự đoán được từ model
@@ -17,11 +17,7 @@ trả về một chuỗi thông tin gồm tên số tương ứng với kết qu
 '''
 def plot_image(predictions_array):
   predict_label = np.argmax(predictions_array)
-  if 100*np.max(predictions_array)< 85:
-    note = 'kiểm tra lại'
-  else :
-    note = ''
-  return ""+arr_name_lable[predict_label-1] +" "+note
+  return ""+arr_name_lable[predict_label-1] +" : "+str(  round(100*np.max(predictions_array),2)) + ' %'
 
 """
 - hàm nhận đầu vào là 1 mảng đường dẫn ảnh ảnh màu

@@ -1,10 +1,6 @@
 import cv2
 import numpy as np
-import pandas as pd
 import matplotlib.pyplot as plt
-import csv  # https://vimentor.com/vi/lesson/24-doc-va-ghi-tep-csv-trong-python-bang-mo-dun-csv-pandas
-
-# import value as value
 try:
     from PIL import Image
 except ImportError:
@@ -14,7 +10,7 @@ import pathlib
 import shutil
 # read your file
 '''#1)	đầu tiên ta thực hiện load file lên bằng phương thức cv2.imread()'''
-file = r'Anh/mau.jpg'
+file = r'D:/anhmau.jpg'
 img = cv2.imread(file, 0)
 
 '''#2)	tiếp theo lấy thông số chiều cao chiều rộng độ sâu ảnh với phương thức img.shape'''
@@ -31,7 +27,6 @@ thresh, img_bin = cv2.threshold(img, 128, 255, cv2.THRESH_BINARY | cv2.THRESH_OT
 img_bin = 255 - img_bin #đảo ngược ảnh ngưỡng
 
 '''5)	Ghi file để lưu trữ hình ảnh vừa được xử lý phục vụ cho các bước tiếp theo'''
-cv2.imwrite('/Users/marius/Desktop/cv_inverted.png', img_bin) #ghi ảnh vào file
 
 # Plotting the image to see the output
 plotting = plt.imshow(img_bin, cmap='gray') # sử dụng matplotlib.pyplot chuyển đổi ảnh sang ảnh thang độ xám
@@ -66,7 +61,6 @@ vertical_lines = cv2.dilate(image_1, ver_kernel, iterations=3)
 #https://codelungtung.wordpress.com/2018/04/24/morphological-operations/
 # phối hợp Dilate và Erode để lọc nhiễu cho Binary Image.
 
-cv2.imwrite("/Users/marius/Desktop/vertical.jpg", vertical_lines)
 # Plot the generated image
 plotting = plt.imshow(image_1, cmap='gray')
 #plt.show()
@@ -75,7 +69,6 @@ plotting = plt.imshow(image_1, cmap='gray')
 # Use horizontal kernel to detect and save the horizontal lines in a jpg
 image_2 = cv2.erode(img_bin, hor_kernel, iterations=3)
 horizontal_lines = cv2.dilate(image_2, hor_kernel, iterations=3)
-cv2.imwrite("/Users/marius/Desktop/horizontal.jpg", horizontal_lines)
 # Plot the generated image
 plotting = plt.imshow(image_2, cmap='gray')
 #plt.show()
@@ -91,7 +84,6 @@ sau đó tiếp tục thực hiện phân ngưỡng cho ảnh vừa thu được
 # Eroding and thesholding the image
 img_vh = cv2.erode(~img_vh, kernel, iterations=2)
 thresh, img_vh = cv2.threshold(img_vh, 128, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
-cv2.imwrite("/Users/marius/Desktop/img_vh.jpg", img_vh)
 #plt.imshow(img_vh, cmap='gray')
 #plt.show()
 
@@ -244,26 +236,9 @@ for i in range(len(row)):
     x = len(row[i])
     if x > countcol:
         countcol = x
-    #print(countcol)
-    # Retrieving the center of each column
-    #print(row[i])
-    #print(len(row))
     center = [int(row[i][j][0] + row[i][j][2] / 2) for j in range(len(row[i])) if row[0]] #lấy lại tâm của các cột
-    #center = []
-    #print(row[0])
-    '''if row[0]:
-        for j in range(len(row[i])):
-            center = [int(row[i][j][0] + row[i][j][2] / 2)]
-            print(row[i][j][0])
-            print(row[i][j][2])'''
-
-
-
     center = np.array(center)
-    #print(str(i)+' '+str(center))
-    #print("++++")
     center.sort()
-    #print(center)
 print(center)
 # Regarding the distance to the columns center, the boxes are arranged in respective order
 # khỏang cách đến tâm cột, các cột sắp xếp theo trình tự tương ứng
@@ -273,20 +248,16 @@ for i in range(len(row)):
     for k in range(countcol):
         lis.append([])
     for j in range(len(row[i])):
-        #print(center)
-        #print(row[i][j][0])
-        #print(row[i][j][2])
         diff = abs(center - (row[i][j][0] + row[i][j][2] / 4)) #hàm abs() trả về giá trị tuyệt đối.
         minimum = min(diff)
         indexing = list(diff).index(minimum) #hàm list(diff) chuyển đổi diff sang dạng list.
         #hàm index() trả về vị trí thấp nhất (vị trí đối tượng minium xuất hiện lần đầu trong list)
         lis[indexing].append(row[i][j])
     finalboxes.append(lis)
-    #print(finalboxes)
-#print(finalboxes)
+
 # from every single image-based cell/box the strings are extracted via pytesseract and stored in a list
 # trích xuất dữ liệu bằng pytesseract và lưu trữ chúng trong danh sách
-path = "Anh_nhan"
+path = r"D:/Anh_nhan"
 p = pathlib.Path(path)
 p.mkdir(exist_ok=True )
 
@@ -307,7 +278,7 @@ for i in range(len(finalboxes)):
             for k in range(len(finalboxes[i][j])):
                 y, x, w, h = finalboxes[i][j][k][0], finalboxes[i][j][k][1], finalboxes[i][j][k][2], \
                              finalboxes[i][j][k][3]
-                crop_img = img[x:x + h, y:y + w]
+                crop_img = img[x + 5 : x + h - 5, y + 5 : y + w - 5]
                 path3 = path2+'/'+str(j)+".jpg"
                 cv2.imwrite(path3, crop_img)
 

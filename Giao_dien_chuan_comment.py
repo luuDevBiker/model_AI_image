@@ -11,7 +11,6 @@ import model as md
 _path = []
 
 class Ui_MainWindow(object):
-
     '''
     mở file ảnh đồng thời hiện ảnh lên lbl ảnh nhận diện tab2 và lấy link path ảnh trong local
     lấy link path để chuyển vào hàm chuyển đồi ảnh gọi từ modul "model.py" tại hàm "train"
@@ -23,16 +22,7 @@ class Ui_MainWindow(object):
         pixmap = QPixmap(path)
         self.lblAnhnhandien.setPixmap(pixmap)
         _path.append(path)
-    # def getFileName(self):
-    #
-    #     response = QFileDialog.getOpenFileName(
-    #         parent=self,
-    #         caption='Select a data file',
-    #         directory=os.getcwd(),
-    #         filter=file_filter,
-    #         initialFilter='Image files (*.jpg *.gif)'
-    #     )
-    #    return response[0]
+
     def train(self):
         global _path
         print('số link ảnh = ',len(_path))
@@ -50,17 +40,17 @@ class Ui_MainWindow(object):
 
         for i in range(len(_path)):
             result = md.plot_image(array_results[i])
-        row = self.tbKetqua.rowCount()
-        item = QtWidgets.QTableWidgetItem()
-        icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap(_path[i]), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        item.setIcon(icon4)
-        self.tbKetqua.setItem(row, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        item.setText(result)
-        self.tbKetqua.setItem(row, 1, item)
-        print('số cột = ',self.tbKetqua.columnCount())
-        print('số hàng = ',self.tbKetqua.rowCount())
+            row = self.tbKetqua.rowCount()
+            item = QtWidgets.QTableWidgetItem()
+            icon = QtGui.QIcon()
+            icon.addPixmap(QtGui.QPixmap(_path[i]), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+            item.setIcon(icon)
+            self.tbKetqua.setItem(row-1,0,item)
+            item = QtWidgets.QTableWidgetItem()
+            item.setText(result)
+            self.tbKetqua.setItem(row-1,1,item)
+
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(878, 600)
@@ -151,19 +141,7 @@ class Ui_MainWindow(object):
         self.tbKetqua.setShowGrid(True)
         self.tbKetqua.setWordWrap(True)
         self.tbKetqua.setCornerButtonEnabled(True)
-        # khỏi tạo số dòng
-        # self.tbKetqua.setRowCount(1)
-        #  khỏi tạo số cột trong dòng
-        # self.tbKetqua.setColumnCount(2)
         self.tbKetqua.setObjectName("tbKetqua")
-
-        item = QtWidgets.QTableWidgetItem()
-        item.setText('số thứ tự')
-        self.tbKetqua.setItem(0, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tbKetqua.setItem(0, 1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tbKetqua.setItem(0, 2, item)
 
 
         self.tbKetqua.horizontalHeader().setVisible(False)
