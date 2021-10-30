@@ -100,7 +100,6 @@ def crop_image_lagre(link):
 
   outer = []
   for i in range(len(finalboxes)):
-        print('zo')
         path2 = path + '/row_' + str(i)
         p = pathlib.Path(path2)
         p.mkdir(exist_ok=True)
@@ -149,13 +148,13 @@ def Crop_number(image , row , columns):
                 roismall = cv2.erode(roismall, kernel, iterations=5)
                 roismall = cv2.dilate(roismall, kernel, iterations=1)
                 roi = cv2.copyMakeBorder(roi, 10, 10, 10, 10, cv2.BORDER_CONSTANT, None, value = [255,255,255])
-                arr = os.listdir('/content/drive/MyDrive/img')
+                arr = os.listdir('img')
                 index = len(arr)
-                cv2.imwrite("/content/drive/MyDrive/img/"+row+'_'+columns+'_'+str(x)+".jpg",roi)
-                print('crop number : ' , "/content/drive/MyDrive/img/"+row+'_'+columns+'_'+str(x)+".jpg")
+                cv2.imwrite("img/"+row+'_'+columns+'_'+str(x)+".jpg",roi)
+                print('crop number : ' , "img/"+row+'_'+columns+'_'+str(x)+".jpg")
 
 def load_list_file_Anhnhan():
-  path_foder = r'/content/drive/MyDrive/Datasets/Anh_nhan'
+  path_foder = r'Anh_nhan'
   array_path = os.listdir(path_foder)
   for i in range(len(array_path)):
       array_path[i] = path_foder +'/'+ array_path[i]
@@ -163,17 +162,17 @@ def load_list_file_Anhnhan():
   return array_path
 
 def load_path_img():
-  path_foder = r'/content/drive/MyDrive/img'
+  path_foder = r'img'
   len_path = os.listdir(path_foder)
   return len_path
 
 def crop():
   array_path = load_list_file_Anhnhan()
-  path_foder = r'/content/drive/MyDrive/img'
+  path_foder = r'img'
   len_path = os.listdir(path_foder)
   for i in len_path:
-    print('/content/drive/MyDrive/img/'+i)
-    os.remove('/content/drive/MyDrive/img/'+i)
+    print('img/'+i)
+    os.remove('img/'+i)
   for i in array_path:
       print(i)
       try:

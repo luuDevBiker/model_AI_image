@@ -5,8 +5,11 @@ from PyQt5.QtWidgets import QApplication, QWidget, QComboBox, QPushButton, QFile
 from PyQt5 import QtCore, QtGui, QtWidgets
 import sys
 import os
+import cv2
 from tkinter import *
 import model as md
+import catAnh as ca
+
 
 _path = []
 
@@ -21,15 +24,26 @@ class Ui_MainWindow(object):
         path = QFileDialog.getOpenFileName(filter=file_filter)[0]
         pixmap = QPixmap(path)
         self.lblAnhnhandien.setPixmap(pixmap)
-        _path.append(path)
-
+        _path = path
+    def add_item_to_table(self,row_table,result,valueim,bool):
+        item = QtWidgets.QTableWidgetItem()
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap('img/' + str(valueim)))
+        item.setIcon(icon)
+        self.tbKetqua.setItem(row_table - 1, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        item.setText(result)
+        if bool == True:
+            item.setBackground(QtGui.QColor(255,0,0))
+        self.tbKetqua.setItem(row_table - 1, 1, item)
     def train(self):
         global _path
-        print('số link ảnh = ',len(_path))
-        '''nhận diện ảnh trả về một mảng kết '''
-        array_img = md.result_array_image(_path)
-        array_results = md.array_result(array_img)
-        self.tbKetqua.setRowCount(len(_path)+1)
+        row_table = 1
+        ca.crop_image_lagre(_path)
+        ca.crop()
+        array_path_image = os.listdir(r'img')
+        print('train image : len_path : ', array_path_image)
+        self.tbKetqua.setRowCount(row_table)
         self.tbKetqua.setColumnCount(2)
         item = QtWidgets.QTableWidgetItem()
         item.setText("Ảnh")
@@ -37,18 +51,21 @@ class Ui_MainWindow(object):
         item = QtWidgets.QTableWidgetItem()
         item.setText("kết quả")
         self.tbKetqua.setItem(0, 1, item)
-
-        for i in range(len(_path)):
-            result = md.plot_image(array_results[i])
-            row = self.tbKetqua.rowCount()
-            item = QtWidgets.QTableWidgetItem()
-            icon = QtGui.QIcon()
-            icon.addPixmap(QtGui.QPixmap(_path[i]), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-            item.setIcon(icon)
-            self.tbKetqua.setItem(row-1,0,item)
-            item = QtWidgets.QTableWidgetItem()
-            item.setText(result)
-            self.tbKetqua.setItem(row-1,1,item)
+        for valueim in array_path_image:
+            row_table += 1
+            self.tbKetqua.setRowCount(row_table)
+            print('Train image : ', valueim)
+            img = cv2.imread('img/' + valueim)
+            for i in range(10):
+                print(i)
+                arr_im = md.convert_color_befor_train(img, i)
+                rs = md.plot_image(md.array_result(arr_im)[0])
+                cropname = rs.split(' ')
+                if int(cropname[2].split('.')[0]) == 100:
+                    self.add_item_to_table(row_table=row_table,result=rs,valueim=valueim,bool=False)
+                    break
+                if i == 9:
+                    self.add_item_to_table(row_table=row_table,result=rs,valueim=valueim,bool=True)
 
 
     def setupUi(self, MainWindow):

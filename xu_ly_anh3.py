@@ -239,7 +239,6 @@ for i in range(len(row)):
     center = [int(row[i][j][0] + row[i][j][2] / 2) for j in range(len(row[i])) if row[0]] #lấy lại tâm của các cột
     center = np.array(center)
     center.sort()
-print(center)
 # Regarding the distance to the columns center, the boxes are arranged in respective order
 # khỏang cách đến tâm cột, các cột sắp xếp theo trình tự tương ứng
 finalboxes = []

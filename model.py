@@ -7,7 +7,7 @@ import numpy as np
 import os
 
 #  mảng các nhãn kết quả
-arr_name_lable = ['số 1','số 2','số 3','số 4','số 5','số 6','số 7','số 8','số 9']
+arr_name_lable = ['1','2','3','4','5','6','7','8','9','0']
 #  load model đã được train sẵn
 model_CP2 = tf.keras.models.load_model(r'img_train_CP2.h5')
 
@@ -109,7 +109,7 @@ def convert_image(image):
   img = img.reshape(1, 28, 28, 1)
   return img
 
-def convert_color_befor_train(image_ip):
+def convert_color_befor_train(image_ip , i_iterations):
   arr_image_test = []
   image = image_ip.copy()
   kernal = np.zeros((90,90))
@@ -122,30 +122,20 @@ def convert_color_befor_train(image_ip):
   # khung - nốt chuyển đổi ảnh
   kernel = np.ones((2, 2), np.uint8)
   # xóa đừng bao của nét chữ - làm mảnh nét chữ
-  # image = cv2.erode(image, kernel, iterations = 1)
-  image = cv2.dilate(image, kernel, iterations = 5)
+  # image = cv2.erode(image, kernel, iterations = i_iterations)
+  image = cv2.dilate(image, kernel, iterations = i_iterations)
   # image = 230 - image
   image = ~cv2.resize(image, (28, 28))
-  arr = os.listdir('/content/drive/MyDrive/DataCrop')
-  index = len(arr)
-  cv2.imwrite('/content/drive/MyDrive/DataCrop/'+str(index)+'.jpg',image)
+  # arr = os.listdir('/content/drive/MyDrive/DataCrop')
+  # index = len(arr)
+  # cv2.imwrite('/content/drive/MyDrive/DataCrop/'+str(index)+'.jpg',image)
   plt.imshow(image)
   image = image.reshape(1, 28, 28, 1)
   arr_image_test.append(image)
   return arr_image_test
-
 '''
 
-def train_image():
-  array_path_image = load_path_img()
-  print('train image : len_path : ' , array_path_image)
-  for valueim in array_path_image:
-    print('Train image : ' , valueim)
-    img = cv2.imread('/content/drive/MyDrive/img/'+valueim)
-    arr_im = convert_color_befor_train(img)
-    arr_rs = array_result(arr_im)
-    rs = plot_image(arr_rs[0])
-    print(valueim,'  ', rs)
+
 
 def call_all():
   arr = os.listdir('/content/drive/MyDrive/Datasets/Anh_Mau')
