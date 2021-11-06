@@ -100,6 +100,7 @@ def crop_image_lagre(link):
 
   outer = []
   for i in range(len(finalboxes)):
+      if i > 1 and i != 14 and i != 16:
         path2 = path + '/row_' + str(i)
         p = pathlib.Path(path2)
         p.mkdir(exist_ok=True)

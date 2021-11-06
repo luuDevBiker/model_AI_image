@@ -1,15 +1,11 @@
-from tkinter import Image
-from PIL import ImageTk
 from PyQt5.QtGui import QPixmap
-from PyQt5.QtWidgets import QApplication, QWidget, QComboBox, QPushButton, QFileDialog, QVBoxLayout
+from PyQt5.QtWidgets import QFileDialog
 from PyQt5 import QtCore, QtGui, QtWidgets
-import sys
 import os
 import cv2
-from tkinter import *
 import model as md
 import catAnh as ca
-
+import CodeColab as CL
 
 _path = []
 
@@ -38,6 +34,8 @@ class Ui_MainWindow(object):
         self.tbKetqua.setItem(row_table - 1, 1, item)
     def train(self):
         global _path
+        result_max = []
+        int_max = 0
         row_table = 1
         ca.crop_image_lagre(_path)
         ca.crop()
@@ -61,11 +59,14 @@ class Ui_MainWindow(object):
                 arr_im = md.convert_color_befor_train(img, i)
                 rs = md.plot_image(md.array_result(arr_im)[0])
                 cropname = rs.split(' ')
+                if int(cropname[2].split('.')[0]) > int_max:
+                    result_max = rs
+                    int_max = int(cropname[2].split('.')[0])
                 if int(cropname[2].split('.')[0]) == 100:
                     self.add_item_to_table(row_table=row_table,result=rs,valueim=valueim,bool=False)
                     break
                 if i == 9:
-                    self.add_item_to_table(row_table=row_table,result=rs,valueim=valueim,bool=True)
+                    self.add_item_to_table(row_table=row_table,result=result_max,valueim=valueim,bool=True)
 
 
     def setupUi(self, MainWindow):
