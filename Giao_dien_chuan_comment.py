@@ -34,7 +34,7 @@ class Ui_MainWindow(object):
         self.tbKetqua.setItem(row_table - 1, 1, item)
     def train(self):
         global _path
-        arr_rs = CL.call_all_testtest(_path)
+        arr_rs = CL.call_all_testtest(r'D:\DataThanhHV[ZaloPC_Folder]\1 (1).jpg')
         # result_max = []
         # int_max = 0
         # ca.crop_image_lagre(_path)
@@ -42,41 +42,62 @@ class Ui_MainWindow(object):
         # array_path_image = os.listdir(r'img')
         row_table = 1
         self.tbKetqua.setRowCount(row_table)
-        self.tbKetqua.setColumnCount(4)
+        self.tbKetqua.setColumnCount(7)
         item = QtWidgets.QTableWidgetItem()
-        item.setText("Ảnh")
+        item.setText("Số Thứ tự")
         self.tbKetqua.setItem(0, 0, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setText("Documents")
+        item.setText("Mã Sinh viên")
         self.tbKetqua.setItem(0, 1, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setText("Ảnh")
+        item.setText("Họ và Tên")
         self.tbKetqua.setItem(0, 2, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setText("Presentation")
+        item.setText("Lớp")
         self.tbKetqua.setItem(0, 3, item)
+        item = QtWidgets.QTableWidgetItem()
+        item.setText("Ký tên")
+        self.tbKetqua.setItem(0, 4, item)
+        item = QtWidgets.QTableWidgetItem()
+        item.setText("Document")
+        self.tbKetqua.setItem(0, 5, item)
+        item = QtWidgets.QTableWidgetItem()
+        item.setText("Presentation")
+        self.tbKetqua.setItem(0, 6, item)
         for i in arr_rs:
             row_table += 1
             self.tbKetqua.setRowCount(row_table)
             item = QtWidgets.QTableWidgetItem()
             icon = QtGui.QIcon()
-            icon.addPixmap(QtGui.QPixmap(i['path']+'/5.jpg'))
+            icon.addPixmap(QtGui.QPixmap(i['path']+'/0.jpg'))
             item.setIcon(icon)
             self.tbKetqua.setItem(row_table - 1, 0, item)
             item = QtWidgets.QTableWidgetItem()
-            item.setText(i['column5'])
+            icon = QtGui.QIcon()
+            icon.addPixmap(QtGui.QPixmap(i['path']+'/1.jpg'))
+            item.setIcon(icon)
             self.tbKetqua.setItem(row_table - 1, 1, item)
             item = QtWidgets.QTableWidgetItem()
-            pixmap = QtGui.QPixmap(i['path']+'/6.jpg')
-            pixmap.scaled(200,900)
-
             icon = QtGui.QIcon()
-            icon.addPixmap(pixmap)
+            icon.addPixmap(QtGui.QPixmap(i['path']+'/2.jpg'))
             item.setIcon(icon)
             self.tbKetqua.setItem(row_table - 1, 2, item)
             item = QtWidgets.QTableWidgetItem()
-            item.setText(i['column6'])
+            icon = QtGui.QIcon()
+            icon.addPixmap(QtGui.QPixmap(i['path']+'/3.jpg'))
+            item.setIcon(icon)
             self.tbKetqua.setItem(row_table - 1, 3, item)
+            item = QtWidgets.QTableWidgetItem()
+            icon = QtGui.QIcon()
+            icon.addPixmap(QtGui.QPixmap(i['path']+'/4.jpg'))
+            item.setIcon(icon)
+            self.tbKetqua.setItem(row_table - 1, 4, item)
+            item = QtWidgets.QTableWidgetItem()
+            item.setText(i['column5'])
+            self.tbKetqua.setItem(row_table - 1, 5, item)
+            item = QtWidgets.QTableWidgetItem()
+            item.setText(i['column6'])
+            self.tbKetqua.setItem(row_table - 1, 6, item)
         # for valueim in array_path_image:
         #     row_table += 1
         #     self.tbKetqua.setRowCount(row_table)
@@ -99,12 +120,12 @@ class Ui_MainWindow(object):
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(878, 600)
+        MainWindow.resize(1878, 1000)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
 
         self.tabWidget = QtWidgets.QTabWidget(self.centralwidget) #tạo tab để chứa các tab con dạy máy, nhận diện, cấu hình
-        self.tabWidget.setGeometry(QtCore.QRect(0, 0, 871, 551))
+        self.tabWidget.setGeometry(QtCore.QRect(50, 0, 1800, 950))
         self.tabWidget.setObjectName("tabWidget")
         self.tab = QtWidgets.QWidget()
         self.tab.setObjectName("tab")
@@ -171,12 +192,12 @@ class Ui_MainWindow(object):
         self.label_5.setObjectName("label_5")
 
         self.lblAnhnhandien = QtWidgets.QLabel(self.tab_2) #label cho phép hiển thị ảnh load từ file để nhận diện
-        self.lblAnhnhandien.setGeometry(QtCore.QRect(10, 80, 511, 371))
+        self.lblAnhnhandien.setGeometry(QtCore.QRect(10, 80, 850, 700))
         self.lblAnhnhandien.setStyleSheet("border: 1px solid rgb(23, 152, 68);")
         self.lblAnhnhandien.setObjectName("lblAnhnhandien")
 
         self.tbKetqua = QtWidgets.QTableWidget(self.tab_2) #tạo table dữ liệu nhận được
-        self.tbKetqua.setGeometry(QtCore.QRect(540, 80, 321, 371))
+        self.tbKetqua.setGeometry(QtCore.QRect(870, 80, 900, 700))
         self.tbKetqua.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.tbKetqua.setStyleSheet("text-align: center")
         self.tbKetqua.setAutoScroll(True)
@@ -191,23 +212,23 @@ class Ui_MainWindow(object):
 
 
         self.tbKetqua.horizontalHeader().setVisible(False)
-        self.tbKetqua.horizontalHeader().setDefaultSectionSize(105)
+        self.tbKetqua.horizontalHeader().setDefaultSectionSize(150)
         self.tbKetqua.horizontalHeader().setHighlightSections(True)
         self.tbKetqua.verticalHeader().setVisible(False)
-        self.tbKetqua.verticalHeader().setDefaultSectionSize(28)
+        self.tbKetqua.verticalHeader().setDefaultSectionSize(50)
         self.tbKetqua.verticalHeader().setHighlightSections(True)
 
         self.btTrichxuat = QtWidgets.QPushButton(self.tab_2) #button trích xuất
-        self.btTrichxuat.setGeometry(QtCore.QRect(70, 470, 93, 28))
+        self.btTrichxuat.setGeometry(QtCore.QRect(70, 850, 93, 28))
         self.btTrichxuat.setObjectName("btTrichxuat")
         self.btTrichxuat.clicked.connect(self.train)
 
         self.btSave = QtWidgets.QPushButton(self.tab_2) #button save
-        self.btSave.setGeometry(QtCore.QRect(320, 470, 93, 28))
+        self.btSave.setGeometry(QtCore.QRect(320, 850, 93, 28))
         self.btSave.setObjectName("btSave")
 
         self.btXuatExel = QtWidgets.QPushButton(self.tab_2) #button xuất excel
-        self.btXuatExel.setGeometry(QtCore.QRect(630, 470, 93, 28))
+        self.btXuatExel.setGeometry(QtCore.QRect(630, 850, 93, 28))
         self.btXuatExel.setObjectName("btXuatExel")
 
         self.label_6 = QtWidgets.QLabel(self.tab_2) #label dữ liệu nhận được

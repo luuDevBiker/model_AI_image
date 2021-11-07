@@ -1,3 +1,5 @@
+import shutil
+
 import tensorflow as tf
 import os
 import cv2
@@ -12,8 +14,8 @@ code colab
 arr_name_lable = ['1','2','3','4','5','6','7','8','9','0']
 #  load model đã được train sẵn
 model_CP2 = tf.keras.models.load_model('img_train_2.h5')
-
 def crop_image_lagre(link):
+
   img = cv2.imread(link, 0)
   thresh, img_bin = cv2.threshold(img, 128, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
   img_bin = 255 - img_bin
@@ -98,7 +100,7 @@ def crop_image_lagre(link):
 
   outer = []
   for i in range(len(finalboxes)):
-    if i > 1 and i != 14 and i != 16:
+    if i > 1 and i != 13 and i != 14:
         path2 = path + '/row_' + str(i)
         p = pathlib.Path(path2)
         p.mkdir(exist_ok=True)
@@ -168,22 +170,12 @@ def array_result(array_image):
 def res_num(path , column):
     arr_indexnumber = []
     image = cv2.imread(path + "/" + str(column) + ".jpg")
+    print(path + "/" + str(column) + ".jpg")
     im3 = image.copy()
 
-    gray = cv2.cvtColor(im3, cv2.COLOR_BGR2GRAY)
-    thresh = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)[1]
-    horizontal_kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (25, 1))
-    detected_lines = cv2.morphologyEx(thresh, cv2.MORPH_OPEN, horizontal_kernel, iterations=2)
-    cnts = cv2.findContours(detected_lines, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-    cnts = cnts[0] if len(cnts) == 2 else cnts[1]
-    for c in cnts:
-        cv2.drawContours(im3, [c], -1, (255, 255, 255), 5)
-    repair_kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (1, 6))
-    result = 255 - cv2.morphologyEx(255 - im3, cv2.MORPH_CLOSE, repair_kernel, iterations=1)
     kernel = np.ones((4, 4), np.uint8)
     im3 = cv2.erode(im3, kernel, iterations=2)
 
-    W, H, C = im3.shape
     gray = cv2.cvtColor(im3, cv2.COLOR_BGR2GRAY)
     blur = cv2.GaussianBlur(gray, (5, 5), 0)
     thresh = cv2.adaptiveThreshold(blur, 255, 1, 1, 11, 1)
@@ -195,9 +187,18 @@ def res_num(path , column):
                 roi = im3[y - 10: y + h + 10, x - 10: x + w + 10]
                 if roi.shape[0] > 55:
                     kernel = np.ones((4, 4), np.uint8)
-                    roi = cv2.erode(roi, kernel, iterations=2)
+                    # roi = cv2.erode(roi, kernel, iterations=2)
                     # xóa đừng bao của nét chữ - làm mảnh nét chữ
                     roi = cv2.copyMakeBorder(roi, 10, 10, 10, 10, cv2.BORDER_CONSTANT, None, value=[255, 255, 255])
+    # for cnt in contours:
+    #     if cv2.contourArea(cnt) > 50:
+    #         [x, y, w, h] = cv2.boundingRect(cnt)
+    #         if h > 20 and h < 120 and w < 90 and h > w:
+    #             roi = im3[y - 10: y + h + 10, x - 15: x + w + 10]
+    #             if roi.shape[0] > 55:
+    #                 roi = cv2.copyMakeBorder(roi, 10, 10, 10, 10, cv2.BORDER_CONSTANT, None, value=[255, 255, 255])
+                    cv2.imshow("none", roi)
+                    cv2.waitKey(0)
                     arr_indexnumber.append({'index': x, 'number': roi})
     return  arr_indexnumber
 '''
@@ -226,6 +227,8 @@ def join_num(arr_indexnumber):
     return ''.join(num)
 
 def call_all_testtest(path):
+    for i in load_list_file_Anhnhan():
+        shutil.rmtree(i)
     crop_image_lagre(path)
     arr_indexnumber = []
     list_row = load_list_file_Anhnhan()
@@ -236,5 +239,40 @@ def call_all_testtest(path):
         arr_indexnumber.append({'index':int(index),'path':i,'column5':column5,'column6':column6})
     return sorted(arr_indexnumber , key=lambda x : x['index'] , reverse=False)
 
+# image = r"Anh_nhan/row_17/6.jpg"
+# img = cv2.imread(image, 1)
+# # plotting = plt.imshow(img, cmap='gray')
+# # plt.show()
+# row = "24"
+# columns = "0"
+# # thresh, img_bin = cv2.threshold(img, 128, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
+# im3 = img.copy()
+# cv2.imshow('non',im3)
+# cv2.waitKey(0)
+# W, H, C= im3.shape
+# gray = cv2.cvtColor(im3, cv2.COLOR_BGR2GRAY)
+# blur = cv2.GaussianBlur(gray, (5, 5), 0)
+# thresh = cv2.adaptiveThreshold(blur, 255, 1, 1, 11, 1)
+# contours, hierarchy = cv2.findContours(thresh, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
+# samples = np.empty((0, 100))
+# responses = []
+# keys = [i for i in range(48, 58)]
+#
+# for cnt in contours:
+#       if cv2.contourArea(cnt) > 50:
+#           [x, y, w, h] = cv2.boundingRect(cnt)
+#           print([x,y,w,h])
+#           # print('x : ',x ,' y : ', y  ,' w : ', w  ,' h : ', h, ' W : ', W ,' H : ',H)
+#           # print('w : ', w  ,' h : ', h)
+#           if h > 20 and h < 120 and w < 90 and h > w:
+#
+#           # if h > 50 and h < 120 and w < 70 and h > w:
+#               # roi = im3[y-5:y + h + 5, x-5:x + w +5]
+#               roi = im3[y - 10 : y + h + 10, x - 15 : x + w + 10]
+#               if roi.shape[0] > 55 :
+#                 roi = cv2.copyMakeBorder(roi, 10, 10, 10, 10, cv2.BORDER_CONSTANT, None, value = [255,255,255])
+#                 cv2.imshow("none", roi)
+#                 cv2.waitKey(0)
 
-
+# for i in load_list_file_Anhnhan():
+#     shutil.rmtree(i)
