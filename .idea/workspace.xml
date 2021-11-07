@@ -6,32 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f0c2154d-7d53-4190-a431-70067faf7677" name="Changes" comment="Merge remote-tracking branch 'origin/main'">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodeColab.py" beforeDir="false" afterPath="$PROJECT_DIR$/CodeColab.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/10_5_135.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/10_6_226.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/11_5_139.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/11_6_166.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/12_5_173.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/13_5_151.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/13_5_171.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/13_5_95.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/2_5_198.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/2_6_125.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/2_6_220.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/3_5_107.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/3_5_198.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/3_6_109.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/3_6_214.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/4_5_229.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/4_6_101.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/4_6_210.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/6_5_132.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/6_6_151.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/7_5_147.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/7_6_154.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/8_5_154.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/9_5_156.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/9_6_150.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Giao_dien_chuan_comment.py" beforeDir="false" afterPath="$PROJECT_DIR$/Giao_dien_chuan_comment.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
