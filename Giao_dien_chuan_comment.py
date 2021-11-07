@@ -34,7 +34,7 @@ class Ui_MainWindow(object):
         self.tbKetqua.setItem(row_table - 1, 1, item)
     def train(self):
         global _path
-        arr_rs = CL.call_all_testtest(r'D:\DataThanhHV[ZaloPC_Folder]\1 (1).jpg')
+        arr_rs = CL.call_all_testtest(_path)
         # result_max = []
         # int_max = 0
         # ca.crop_image_lagre(_path)
