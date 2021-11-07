@@ -183,13 +183,14 @@ def res_num(path , column):
     for cnt in contours:
         if cv2.contourArea(cnt) > 50:
             [x, y, w, h] = cv2.boundingRect(cnt)
-            if h > 50 and h < 120 and w > 30 and w < 90 and h > w:
+            if h > 50 and h < 120 and w > 40 and w < 90 and h > w:
                 roi = im3[y - 10: y + h + 10, x - 10: x + w + 10]
                 if roi.shape[0] > 55:
                     kernel = np.ones((4, 4), np.uint8)
                     # roi = cv2.erode(roi, kernel, iterations=2)
                     # xóa đừng bao của nét chữ - làm mảnh nét chữ
-                    roi = cv2.copyMakeBorder(roi, 10, 10, 10, 10, cv2.BORDER_CONSTANT, None, value=[255, 255, 255])
+                    # roi = cv2.copyMakeBorder(roi, 2, 2 , 2, 2, cv2.BORDER_CONSTANT, None, value=[255, 255, 255])
+                    cv2.imwrite("img/" +path.split('_')[2] + "_" + str(column)+ "_"+ str(x) + ".jpg",roi)
     # for cnt in contours:
     #     if cv2.contourArea(cnt) > 50:
     #         [x, y, w, h] = cv2.boundingRect(cnt)
@@ -197,8 +198,6 @@ def res_num(path , column):
     #             roi = im3[y - 10: y + h + 10, x - 15: x + w + 10]
     #             if roi.shape[0] > 55:
     #                 roi = cv2.copyMakeBorder(roi, 10, 10, 10, 10, cv2.BORDER_CONSTANT, None, value=[255, 255, 255])
-                    cv2.imshow("none", roi)
-                    cv2.waitKey(0)
                     arr_indexnumber.append({'index': x, 'number': roi})
     return  arr_indexnumber
 '''
@@ -276,3 +275,8 @@ def call_all_testtest(path):
 
 # for i in load_list_file_Anhnhan():
 #     shutil.rmtree(i)
+
+# for i in load_path_img():
+#     os.remove('img/'+i)
+#
+# call_all_testtest(r'D:\DataThanhHV[ZaloPC_Folder]\1 (1).jpg')
