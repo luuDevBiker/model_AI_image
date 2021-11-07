@@ -2,7 +2,6 @@ import tensorflow as tf
 import os
 import cv2
 import numpy as np
-
 import pathlib
 from termcolor import colored
 '''
@@ -15,9 +14,7 @@ arr_name_lable = ['1','2','3','4','5','6','7','8','9','0']
 model_CP2 = tf.keras.models.load_model('img_train_2.h5')
 
 def crop_image_lagre(link):
-  print(link)
   img = cv2.imread(link, 0)
-  img_crop = img.copy()
   thresh, img_bin = cv2.threshold(img, 128, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
   img_bin = 255 - img_bin
   kernel_len = np.array(img).shape[1] // 100
@@ -69,7 +66,6 @@ def crop_image_lagre(link):
           if (box[i][1] <= previous[1] + mean / 2):
               column.append(box[i])
               previous = box[i]
-              #print(previous[1])
               if (i == len(box) - 1):
                   row.append(column)
           else:
@@ -85,7 +81,6 @@ def crop_image_lagre(link):
       center = [int(row[i][j][0] + row[i][j][2] / 2) for j in range(len(row[i])) if row[0]] #lấy lại tâm của các cột
       center = np.array(center)
       center.sort()
-  # print(center)
   finalboxes = []
   for i in range(len(row)):
       lis = []
@@ -107,7 +102,6 @@ def crop_image_lagre(link):
         path2 = path + '/row_' + str(i)
         p = pathlib.Path(path2)
         p.mkdir(exist_ok=True)
-        # print(path2)
         for j in range(len(finalboxes[i])):
             inner = ''
             if (len(finalboxes[i][j]) == 0):
@@ -122,13 +116,13 @@ def crop_image_lagre(link):
                     crop_img = cv2.resize(crop_img,(h*2, w*2))
                     crop_img = cv2.copyMakeBorder(crop_img, 30, 30, 30, 30, cv2.BORDER_CONSTANT, None, value = [255,255,255])
                     kernel = np.ones((4,4), np.uint8)
-                    crop_img = cv2.dilate(crop_img, kernel, iterations=1)
+                    crop_img = cv2.erode(crop_img, kernel, iterations=1)
                     path3 = path2+'/'+str(j)+".jpg"
                     cv2.imwrite(path3, crop_img)
 
 def plot_image(predictions_array):
   predict_label = np.argmax(predictions_array)
-  return ""+arr_name_lable[predict_label-1] +" : "+str(round(100*np.max(predictions_array),2)) + ' %'
+  return ""+arr_name_lable[predict_label-1] +" : "+str(round(100*np.max(predictions_array),2))
 
 def convert_color_befor_train_3(image_ip, i_iterations):
     arr_image_test = []
@@ -149,14 +143,15 @@ def convert_color_befor_train_3(image_ip, i_iterations):
     return arr_image_test
 
 def load_list_file_Anhnhan():
-  path_foder = r'/content/drive/MyDrive/Datasets/Anh_nhan'
+  path_foder = r'Anh_nhan'
   array_path = os.listdir(path_foder)
   for i in range(len(array_path)):
       array_path[i] = path_foder +'/'+ array_path[i]
-      # print(array_path[i])
   return array_path
+
+
 def load_path_img():
-  path_foder = r'/content/drive/MyDrive/img'
+  path_foder = r'img'
   len_path = os.listdir(path_foder)
   return len_path
 
@@ -170,10 +165,9 @@ def array_result(array_image):
       array_result.append(result)
     return array_result
 
-def res_num(path , column) -> object:
+def res_num(path , column):
     arr_indexnumber = []
-    print('row : ', path.split('_')[2])
-    image = cv2.imread(path + "/" + column + ".jpg")
+    image = cv2.imread(path + "/" + str(column) + ".jpg")
     im3 = image.copy()
 
     gray = cv2.cvtColor(im3, cv2.COLOR_BGR2GRAY)
@@ -201,11 +195,17 @@ def res_num(path , column) -> object:
                 roi = im3[y - 10: y + h + 10, x - 10: x + w + 10]
                 if roi.shape[0] > 55:
                     kernel = np.ones((4, 4), np.uint8)
-                    roi = cv2.dilate(roi, kernel, iterations=1)
+                    roi = cv2.erode(roi, kernel, iterations=2)
                     # xóa đừng bao của nét chữ - làm mảnh nét chữ
                     roi = cv2.copyMakeBorder(roi, 10, 10, 10, 10, cv2.BORDER_CONSTANT, None, value=[255, 255, 255])
                     arr_indexnumber.append({'index': x, 'number': roi})
     return  arr_indexnumber
+'''
+hàm ghép hai số lại thành một số 
+do lúc cắt bị tách thành hai số riêng không lấy dấu phẩi
+'''
+
+
 
 def join_num(arr_indexnumber):
     num = []
@@ -218,20 +218,23 @@ def join_num(arr_indexnumber):
             arr_im = convert_color_befor_train_3(img, i)
             rs = plot_image(array_result(arr_im)[0])
             cropname = rs.split(' ')
-            print(colored(rs.split(' ')[0], 'red'))
             if int(cropname[2].split('.')[0]) > 96:
-                num.append(rs.split('.')[0])
+                num.append(rs.split(' ')[0])
                 break
             if i == 9:
-                num.append(rs.split('.')[0])
+                num.append(rs.split(' ')[0])
     return ''.join(num)
 
-def call_all_testtest(path,column):
+def call_all_testtest(path):
     crop_image_lagre(path)
+    arr_indexnumber = []
     list_row = load_list_file_Anhnhan()
-
     for i in list_row:
-        arr_indexnumber = res_num(i,5)
-    join_num(arr_indexnumber)
+        index = i.split('_')[2]
+        column5 = join_num(res_num(i,5))
+        column6 = join_num(res_num(i,6))
+        arr_indexnumber.append({'index':int(index),'path':i,'column5':column5,'column6':column6})
+    return sorted(arr_indexnumber , key=lambda x : x['index'] , reverse=False)
+
 
 

@@ -34,39 +34,67 @@ class Ui_MainWindow(object):
         self.tbKetqua.setItem(row_table - 1, 1, item)
     def train(self):
         global _path
-        result_max = []
-        int_max = 0
+        arr_rs = CL.call_all_testtest(_path)
+        # result_max = []
+        # int_max = 0
+        # ca.crop_image_lagre(_path)
+        # ca.crop()
+        # array_path_image = os.listdir(r'img')
         row_table = 1
-        ca.crop_image_lagre(_path)
-        ca.crop()
-        array_path_image = os.listdir(r'img')
-        print('train image : len_path : ', array_path_image)
         self.tbKetqua.setRowCount(row_table)
-        self.tbKetqua.setColumnCount(2)
+        self.tbKetqua.setColumnCount(4)
         item = QtWidgets.QTableWidgetItem()
         item.setText("Ảnh")
         self.tbKetqua.setItem(0, 0, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setText("kết quả")
+        item.setText("Documents")
         self.tbKetqua.setItem(0, 1, item)
-        for valueim in array_path_image:
+        item = QtWidgets.QTableWidgetItem()
+        item.setText("Ảnh")
+        self.tbKetqua.setItem(0, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        item.setText("Presentation")
+        self.tbKetqua.setItem(0, 3, item)
+        for i in arr_rs:
             row_table += 1
             self.tbKetqua.setRowCount(row_table)
-            print('Train image : ', valueim)
-            img = cv2.imread('img/' + valueim)
-            for i in range(10):
-                print(i)
-                arr_im = md.convert_color_befor_train(img, i)
-                rs = md.plot_image(md.array_result(arr_im)[0])
-                cropname = rs.split(' ')
-                if int(cropname[2].split('.')[0]) > int_max:
-                    result_max = rs
-                    int_max = int(cropname[2].split('.')[0])
-                if int(cropname[2].split('.')[0]) == 100:
-                    self.add_item_to_table(row_table=row_table,result=rs,valueim=valueim,bool=False)
-                    break
-                if i == 9:
-                    self.add_item_to_table(row_table=row_table,result=result_max,valueim=valueim,bool=True)
+            item = QtWidgets.QTableWidgetItem()
+            icon = QtGui.QIcon()
+            icon.addPixmap(QtGui.QPixmap(i['path']+'/5.jpg'))
+            item.setIcon(icon)
+            self.tbKetqua.setItem(row_table - 1, 0, item)
+            item = QtWidgets.QTableWidgetItem()
+            item.setText(i['column5'])
+            self.tbKetqua.setItem(row_table - 1, 1, item)
+            item = QtWidgets.QTableWidgetItem()
+            pixmap = QtGui.QPixmap(i['path']+'/6.jpg')
+            pixmap.scaled(200,900)
+
+            icon = QtGui.QIcon()
+            icon.addPixmap(pixmap)
+            item.setIcon(icon)
+            self.tbKetqua.setItem(row_table - 1, 2, item)
+            item = QtWidgets.QTableWidgetItem()
+            item.setText(i['column6'])
+            self.tbKetqua.setItem(row_table - 1, 3, item)
+        # for valueim in array_path_image:
+        #     row_table += 1
+        #     self.tbKetqua.setRowCount(row_table)
+        #     print('Train image : ', valueim)
+        #     img = cv2.imread('img/' + valueim)
+        #     for i in range(10):
+        #         print(i)
+        #         arr_im = md.convert_color_befor_train(img, i)
+        #         rs = md.plot_image(md.array_result(arr_im)[0])
+        #         cropname = rs.split(' ')
+        #         if int(cropname[2].split('.')[0]) > int_max:
+        #             result_max = rs
+        #             int_max = int(cropname[2].split('.')[0])
+        #         if int(cropname[2].split('.')[0]) == 100:
+        #             self.add_item_to_table(row_table=row_table,result=rs,valueim=valueim,bool=False)
+        #             break
+        #         if i == 9:
+        #             self.add_item_to_table(row_table=row_table,result=result_max,valueim=valueim,bool=True)
 
 
     def setupUi(self, MainWindow):

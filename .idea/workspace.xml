@@ -6,18 +6,104 @@
   <component name="ChangeListManager">
     <list default="true" id="f0c2154d-7d53-4190-a431-70067faf7677" name="Changes" comment="Merge remote-tracking branch 'origin/main'">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_0/0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_0/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_0/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_0/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_0/4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_0/5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_0/7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_1/5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_1/6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_10/0.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_10/0.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_10/1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_10/1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_10/2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_10/2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_10/3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_10/3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_10/4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_10/4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_10/5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_10/5.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_10/6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_10/6.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_10/7.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_10/7.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_11/0.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_11/0.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_11/1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_11/1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_11/2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_11/2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_11/3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_11/3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_11/4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_11/4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_11/5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_11/5.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_11/6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_11/6.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_11/7.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_11/7.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_12/0.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_12/0.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_12/1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_12/1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_12/2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_12/2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_12/3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_12/3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_12/4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_12/4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_12/5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_12/5.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_12/6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_12/6.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_12/7.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_12/7.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_13/0.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_13/0.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_13/1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_13/1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_13/2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_13/2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_13/3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_13/3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_13/4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_13/4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_13/5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_13/5.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_13/6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_13/6.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_13/7.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_13/7.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_2/0.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_2/0.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_2/1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_2/1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_2/2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_2/2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_2/3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_2/3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_2/4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_2/4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_2/5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_2/5.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_2/6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_2/6.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_2/7.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_2/7.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_3/0.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_3/0.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_3/1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_3/1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_3/2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_3/2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_3/3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_3/3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_3/4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_3/4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_3/5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_3/5.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_3/6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_3/6.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_3/7.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_3/7.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_4/0.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_4/0.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_4/1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_4/1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_4/2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_4/2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_4/3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_4/3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_4/4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_4/4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_4/5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_4/5.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_4/6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_4/6.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_4/7.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_4/7.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_5/0.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_5/0.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_5/1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_5/1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_5/2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_5/2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_5/3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_5/3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_5/4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_5/4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_5/5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_5/5.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_5/6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_5/6.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_5/7.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_5/7.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_6/0.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_6/0.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_6/1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_6/1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_6/2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_6/2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_6/3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_6/3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_6/4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_6/4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_6/5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_6/5.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_6/6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_6/6.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_6/7.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_6/7.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_7/0.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_7/0.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_7/1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_7/1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_7/2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_7/2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_7/3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_7/3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_7/4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_7/4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_7/5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_7/5.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_7/6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_7/6.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_7/7.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_7/7.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_8/0.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_8/0.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_8/1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_8/1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_8/2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_8/2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_8/3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_8/3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_8/4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_8/4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_8/5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_8/5.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_8/6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_8/6.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_8/7.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_8/7.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_9/0.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_9/0.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_9/1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_9/1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_9/2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_9/2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_9/3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_9/3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_9/4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_9/4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_9/5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_9/5.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_9/6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_9/6.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_9/7.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_9/7.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodeColab.py" beforeDir="false" afterPath="$PROJECT_DIR$/CodeColab.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Giao_dien_chuan_comment.py" beforeDir="false" afterPath="$PROJECT_DIR$/Giao_dien_chuan_comment.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catAnh.py" beforeDir="false" afterPath="$PROJECT_DIR$/catAnh.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0_5_275.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +141,28 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.Remove_straight_line">
+  <component name="RunManager" selected="Python.Giao_dien_chuan_comment">
+    <configuration name="CodeColab" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="pythonProject2" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CodeColab.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="Giao_dien_chuan_comment" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="pythonProject2" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -140,34 +247,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="xu_ly_anh3" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="pythonProject2" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/xu_ly_anh3.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Remove_straight_line" />
         <item itemvalue="Python.Giao_dien_chuan_comment" />
+        <item itemvalue="Python.CodeColab" />
+        <item itemvalue="Python.Remove_straight_line" />
         <item itemvalue="Python.demo" />
         <item itemvalue="Python.catAnh" />
-        <item itemvalue="Python.xu_ly_anh3" />
       </list>
     </recent_temporary>
   </component>
@@ -239,5 +325,16 @@
     <MESSAGE value="commit main and packages" />
     <MESSAGE value="Merge remote-tracking branch 'origin/main'" />
     <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/main'" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
