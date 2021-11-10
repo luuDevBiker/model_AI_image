@@ -138,7 +138,7 @@ def Crop_number(image , row , columns):
           # print('x : ',x ,' y : ', y  ,' w : ', w  ,' h : ', h, ' W : ', W ,' H : ',H)
           # print('w : ', w  ,' h : ', h)
           if h > 50 and h < 120 and w < 70 and h > w:
-          # if h > 55 and h < 120 and w < 100 and h > w:
+          # if h > 10:
               # roi = im3[y-5:y + h + 5, x-5:x + w +5]
               roi = im3[y - 10 : y + h + 10, x - 15 : x + w + 10]
               if roi.shape[0] > 55 :

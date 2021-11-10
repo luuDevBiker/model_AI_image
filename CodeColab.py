@@ -13,7 +13,7 @@ code colab
 #  mảng các nhãn kết quả
 arr_name_lable = ['1','2','3','4','5','6','7','8','9','0']
 #  load model đã được train sẵn
-model_CP2 = tf.keras.models.load_model('img_train_2.h5')
+model_CP2 = tf.keras.models.load_model('img_train_CP2.h5')
 def crop_image_lagre(link):
 
   img = cv2.imread(link, 0)
@@ -55,7 +55,7 @@ def crop_image_lagre(link):
   for c in contours:
       x, y, w, h = cv2.boundingRect(c)
       if (w < 1000 and h < 500):
-          image = cv2.rectangle(img, (x, y), (x + w, y + h), (255, 255, 255), 5)
+          image = cv2.rectangle(img, (x, y), (x + w, y + h), (255, 255, 255), 3)
           box.append([x, y, w, h])
   row = []
   column = []
@@ -100,7 +100,7 @@ def crop_image_lagre(link):
 
   outer = []
   for i in range(len(finalboxes)):
-    if i > 1 and i != 13 and i != 14:
+    # if i > 1 and i != 13 and i != 14:
         path2 = path + '/row_' + str(i)
         p = pathlib.Path(path2)
         p.mkdir(exist_ok=True)
@@ -116,9 +116,9 @@ def crop_image_lagre(link):
                     crop_img = img[x - 2 : x + h + 10, y : y + w - 10]
                     w , h = crop_img.shape
                     crop_img = cv2.resize(crop_img,(h*2, w*2))
-                    crop_img = cv2.copyMakeBorder(crop_img, 30, 30, 30, 30, cv2.BORDER_CONSTANT, None, value = [255,255,255])
-                    kernel = np.ones((4,4), np.uint8)
-                    crop_img = cv2.erode(crop_img, kernel, iterations=1)
+                    crop_img = cv2.copyMakeBorder(crop_img, 1 , 1 , 1 , 1 , cv2.BORDER_CONSTANT, None, value = [255,255,255])
+                    kernel = np.ones((2,2), np.uint8)
+                    crop_img = cv2.erode(crop_img, kernel, iterations=4)
                     path3 = path2+'/'+str(j)+".jpg"
                     cv2.imwrite(path3, crop_img)
 
@@ -151,12 +151,10 @@ def load_list_file_Anhnhan():
       array_path[i] = path_foder +'/'+ array_path[i]
   return array_path
 
-
 def load_path_img():
   path_foder = r'img'
   len_path = os.listdir(path_foder)
   return len_path
-
 
 def array_result(array_image):
     array_result = []
@@ -172,41 +170,25 @@ def res_num(path , column):
     image = cv2.imread(path + "/" + str(column) + ".jpg")
     print(path + "/" + str(column) + ".jpg")
     im3 = image.copy()
-
     kernel = np.ones((4, 4), np.uint8)
     im3 = cv2.erode(im3, kernel, iterations=2)
-
     gray = cv2.cvtColor(im3, cv2.COLOR_BGR2GRAY)
     blur = cv2.GaussianBlur(gray, (5, 5), 0)
     thresh = cv2.adaptiveThreshold(blur, 255, 1, 1, 11, 1)
     contours, hierarchy = cv2.findContours(thresh, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
     for cnt in contours:
-        if cv2.contourArea(cnt) > 50:
+        if cv2.contourArea(cnt) > 55:
             [x, y, w, h] = cv2.boundingRect(cnt)
-            if h > 50 and h < 120 and w > 40 and w < 90 and h > w:
-                roi = im3[y - 10: y + h + 10, x - 10: x + w + 10]
-                if roi.shape[0] > 55:
-                    kernel = np.ones((4, 4), np.uint8)
-                    # roi = cv2.erode(roi, kernel, iterations=2)
-                    # xóa đừng bao của nét chữ - làm mảnh nét chữ
-                    # roi = cv2.copyMakeBorder(roi, 2, 2 , 2, 2, cv2.BORDER_CONSTANT, None, value=[255, 255, 255])
+            if h > w:
+                roi = im3[y: y + h , x : x + w ]
+                if roi.shape[0] > 50:
                     cv2.imwrite("img/" +path.split('_')[2] + "_" + str(column)+ "_"+ str(x) + ".jpg",roi)
-    # for cnt in contours:
-    #     if cv2.contourArea(cnt) > 50:
-    #         [x, y, w, h] = cv2.boundingRect(cnt)
-    #         if h > 20 and h < 120 and w < 90 and h > w:
-    #             roi = im3[y - 10: y + h + 10, x - 15: x + w + 10]
-    #             if roi.shape[0] > 55:
-    #                 roi = cv2.copyMakeBorder(roi, 10, 10, 10, 10, cv2.BORDER_CONSTANT, None, value=[255, 255, 255])
                     arr_indexnumber.append({'index': x, 'number': roi})
     return  arr_indexnumber
 '''
 hàm ghép hai số lại thành một số 
 do lúc cắt bị tách thành hai số riêng không lấy dấu phẩi
 '''
-
-
-
 def join_num(arr_indexnumber):
     num = []
     def get_my_key(obj):
@@ -218,11 +200,11 @@ def join_num(arr_indexnumber):
             arr_im = convert_color_befor_train_3(img, i)
             rs = plot_image(array_result(arr_im)[0])
             cropname = rs.split(' ')
-            if int(cropname[2].split('.')[0]) > 96:
+            if int(cropname[2].split('.')[0]) > 98:
                 num.append(rs.split(' ')[0])
                 break
             if i == 9:
-                num.append(rs.split(' ')[0])
+                num.append('?')
     return ''.join(num)
 
 def call_all_testtest(path):
@@ -232,13 +214,16 @@ def call_all_testtest(path):
     arr_indexnumber = []
     list_row = load_list_file_Anhnhan()
     for i in list_row:
-        index = i.split('_')[2]
-        column5 = join_num(res_num(i,5))
-        column6 = join_num(res_num(i,6))
-        arr_indexnumber.append({'index':int(index),'path':i,'column5':column5,'column6':column6})
+        try :
+            index = i.split('_')[2]
+            column5 = join_num(res_num(i,5))
+            column6 = join_num(res_num(i,6))
+            arr_indexnumber.append({'index':int(index),'path':i,'column5':column5,'column6':column6})
+        except Exception as e :
+            print(e)
     return sorted(arr_indexnumber , key=lambda x : x['index'] , reverse=False)
-
-# image = r"Anh_nhan/row_17/6.jpg"
+#
+# image = r"Anh_nhan\row_12\5.jpg"
 # img = cv2.imread(image, 1)
 # # plotting = plt.imshow(img, cmap='gray')
 # # plt.show()
@@ -263,19 +248,27 @@ def call_all_testtest(path):
 #           print([x,y,w,h])
 #           # print('x : ',x ,' y : ', y  ,' w : ', w  ,' h : ', h, ' W : ', W ,' H : ',H)
 #           # print('w : ', w  ,' h : ', h)
-#           if h > 20 and h < 120 and w < 90 and h > w:
+#           # if h > 20 and h < 120 and w < 90 and h > w:
 #
 #           # if h > 50 and h < 120 and w < 70 and h > w:
 #               # roi = im3[y-5:y + h + 5, x-5:x + w +5]
-#               roi = im3[y - 10 : y + h + 10, x - 15 : x + w + 10]
-#               if roi.shape[0] > 55 :
-#                 roi = cv2.copyMakeBorder(roi, 10, 10, 10, 10, cv2.BORDER_CONSTANT, None, value = [255,255,255])
-#                 cv2.imshow("none", roi)
-#                 cv2.waitKey(0)
+#           roi = im3[y - 10 : y + h + 10, x - 15 : x + w + 10]
+#           if roi.shape[0] > 55 :
+#             roismall = cv2.resize(roi, (W * 2, H * 2))
+#             kernel = np.ones((4,4), np.uint8)
+#             roismall = np.array(255 * (roismall / 255) ** 1, dtype='uint8')
+#             # xóa đừng bao của nét chữ - làm mảnh nét chữ
+#             roismall = cv2.erode(roismall, kernel, iterations=5)
+#             # print(roismall)
+#             roismall = cv2.dilate(roismall, kernel, iterations=1)
+#             roi = cv2.copyMakeBorder(roi, 10, 10, 10, 10, cv2.BORDER_CONSTANT, None, value = [255,255,255])
+#             cv2.imshow("none", roi)
+#             cv2.waitKey(0)
+
 
 # for i in load_list_file_Anhnhan():
 #     shutil.rmtree(i)
-
+#
 # for i in load_path_img():
 #     os.remove('img/'+i)
 #

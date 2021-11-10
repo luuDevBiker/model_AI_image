@@ -5,9 +5,9 @@ import os
 import cv2
 import model as md
 import catAnh as ca
-import CodeColab as CL
+import CodeColab2 as CL
 
-_path = []
+_path = ''
 
 class Ui_MainWindow(object):
     '''
@@ -34,12 +34,8 @@ class Ui_MainWindow(object):
         self.tbKetqua.setItem(row_table - 1, 1, item)
     def train(self):
         global _path
+        print(_path)
         arr_rs = CL.call_all_testtest(_path)
-        # result_max = []
-        # int_max = 0
-        # ca.crop_image_lagre(_path)
-        # ca.crop()
-        # array_path_image = os.listdir(r'img')
         row_table = 1
         self.tbKetqua.setRowCount(row_table)
         self.tbKetqua.setColumnCount(9)
@@ -104,7 +100,8 @@ class Ui_MainWindow(object):
             item.setIcon(icon)
             self.tbKetqua.setItem(row_table - 1, 5, item)
             item = QtWidgets.QTableWidgetItem()
-            item.setText(i['column5'])
+            number5 = CL.join_num(CL.res_num(i['path'],5))
+            item.setText(number5)
             self.tbKetqua.setItem(row_table - 1, 6, item)
             item = QtWidgets.QTableWidgetItem()
             icon = QtGui.QIcon()
@@ -112,7 +109,8 @@ class Ui_MainWindow(object):
             item.setIcon(icon)
             self.tbKetqua.setItem(row_table - 1, 7, item)
             item = QtWidgets.QTableWidgetItem()
-            item.setText(i['column6'])
+            number6 = CL.join_num(CL.res_num(i['path'],6))
+            item.setText(number6)
             self.tbKetqua.setItem(row_table - 1, 8, item)
         # for valueim in array_path_image:
         #     row_table += 1
@@ -225,7 +223,7 @@ class Ui_MainWindow(object):
         self.tbKetqua.setWordWrap(True)
         self.tbKetqua.setCornerButtonEnabled(True)
         self.tbKetqua.setObjectName("tbKetqua")
-
+        self.tbKetqua.setIconSize(QtCore.QSize(200, 50))
 
         self.tbKetqua.horizontalHeader().setVisible(False)
         self.tbKetqua.horizontalHeader().setDefaultSectionSize(150)
