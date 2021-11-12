@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f0c2154d-7d53-4190-a431-70067faf7677" name="Changes" comment="Merge remote-tracking branch 'origin/main'">
+    <list default="true" id="f0c2154d-7d53-4190-a431-70067faf7677" name="Changes" comment="comment">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Anh_nhan/row_10/0.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_10/0.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Anh_nhan/row_10/1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_10/1.jpg" afterDir="false" />
@@ -174,6 +174,41 @@
       <change beforePath="$PROJECT_DIR$/Anh_nhan/row_9/5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_9/5.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Anh_nhan/row_9/6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_9/6.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Anh_nhan/row_9/7.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Anh_nhan/row_9/7.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Giao_dien_chuan_comment.py" beforeDir="false" afterPath="$PROJECT_DIR$/Giao_dien_chuan_comment.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/10_6_129.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/10_6_80.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/11_5_156.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/11_5_97.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/11_6_123.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/17_5_121.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/17_6_113.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/17_6_175.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/18_5_114.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/19_5_137.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/20_6_163.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/21_5_153.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/21_6_153.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/21_6_179.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/22_5_146.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/22_6_144.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/22_6_70.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/23_5_121.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/24_5_147.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/24_6_165.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/3_5_118.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/3_6_135.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/5_6_92.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/6_5_152.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/6_6_106.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/6_6_183.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/7_5_166.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/8_5_108.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/8_5_188.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/8_6_123.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/8_6_188.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/9_5_117.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/9_6_103.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/9_6_173.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -372,7 +407,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636528901521</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="comment">
+      <created>1636602985918</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1636602985918</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -402,17 +444,11 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit main and packages" />
     <MESSAGE value="Merge remote-tracking branch 'origin/main'" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/main'" />
+    <MESSAGE value="comment" />
+    <option name="LAST_COMMIT_MESSAGE" value="comment" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/CodeColab.py</url>
-          <line>191</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">

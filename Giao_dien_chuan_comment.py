@@ -1,4 +1,5 @@
-from PyQt5.QtGui import QPixmap
+import PySide2
+from PyQt5.QtGui import QPixmap, QImage
 from PyQt5.QtWidgets import QFileDialog
 from PyQt5 import QtCore, QtGui, QtWidgets
 import os
@@ -21,17 +22,75 @@ class Ui_MainWindow(object):
         pixmap = QPixmap(path)
         self.lblAnhnhandien.setPixmap(pixmap)
         _path = path
-    def add_item_to_table(self,row_table,result,valueim,bool):
-        item = QtWidgets.QTableWidgetItem()
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap('img/' + str(valueim)))
-        item.setIcon(icon)
-        self.tbKetqua.setItem(row_table - 1, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        item.setText(result)
-        if bool == True:
-            item.setBackground(QtGui.QColor(255,0,0))
-        self.tbKetqua.setItem(row_table - 1, 1, item)
+    def Save_image_in_table(self):
+        count_row = self.tbKetqua.rowCount()
+        count_column = self.tbKetqua.columnCount()
+        for row in range(count_row):
+            num_rs = self.tbKetqua.item(row,6).text()
+            # for column in range(count_column):
+    def convert_nparray_to_QPixmap(self, img):
+        w, h, ch = img.shape
+        # Convert resulting image to pixmap
+        if img.ndim == 1:
+            img = cv2.cvtColor(img, cv2.COLOR_GRAY2RGB)
+
+        qimg = QImage(img.data, h, w, 3 * h, QImage.Format_RGB888)
+        qpixmap = QPixmap(qimg)
+
+        return qpixmap
+    def add_rs_to_table(self,row_table,i):
+        try:
+            self.tbKetqua.setRowCount(row_table)
+            item = QtWidgets.QTableWidgetItem()
+            icon = QtGui.QIcon()
+            icon.addPixmap(self.convert_nparray_to_QPixmap(i['column 0']))
+            item.setIcon(icon)
+            self.tbKetqua.setItem(row_table - 1, 0, item)
+            item = QtWidgets.QTableWidgetItem()
+            icon = QtGui.QIcon()
+            icon.addPixmap(self.convert_nparray_to_QPixmap(i['column 1']))
+            item.setIcon(icon)
+            self.tbKetqua.setItem(row_table - 1, 1, item)
+            item = QtWidgets.QTableWidgetItem()
+            icon = QtGui.QIcon()
+            icon.addPixmap(self.convert_nparray_to_QPixmap(i['column 2']))
+            item.setIcon(icon)
+            self.tbKetqua.setItem(row_table - 1, 2, item)
+            item = QtWidgets.QTableWidgetItem()
+            icon = QtGui.QIcon()
+            icon.addPixmap(self.convert_nparray_to_QPixmap(i['column 3']))
+            item.setIcon(icon)
+            self.tbKetqua.setItem(row_table - 1, 3, item)
+            item = QtWidgets.QTableWidgetItem()
+            icon = QtGui.QIcon()
+            icon.addPixmap(self.convert_nparray_to_QPixmap(i['column 4']))
+            item.setIcon(icon)
+            self.tbKetqua.setItem(row_table - 1, 4, item)
+            item = QtWidgets.QTableWidgetItem()
+            icon = QtGui.QIcon()
+            icon.addPixmap(self.convert_nparray_to_QPixmap(i['column 5']))
+            item.setIcon(icon)
+            self.tbKetqua.setItem(row_table - 1, 5, item)
+            try:
+                item = QtWidgets.QTableWidgetItem()
+                item.setText(i['rs_column5']['num_rs'])
+                self.tbKetqua.setItem(row_table - 1, 6, item)
+            except Exception as e:
+                print(e)
+            item = QtWidgets.QTableWidgetItem()
+            icon = QtGui.QIcon()
+            icon.addPixmap(self.convert_nparray_to_QPixmap(i['column 6']))
+            item.setIcon(icon)
+            self.tbKetqua.setItem(row_table - 1, 7, item)
+            try:
+                item = QtWidgets.QTableWidgetItem()
+                item.setText(i['rs_column6']['num_rs'])
+                self.tbKetqua.setItem(row_table - 1, 8, item)
+            except Exception as e:
+                print(e)
+        except Exception as e:
+            print(e)
+            return "NaN"
     def train(self):
         global _path
         print(_path)
@@ -66,71 +125,12 @@ class Ui_MainWindow(object):
         item = QtWidgets.QTableWidgetItem()
         item.setText("Presentation")
         self.tbKetqua.setItem(0, 8, item)
-        for i in arr_rs:
-            row_table += 1
-            self.tbKetqua.setRowCount(row_table)
-            item = QtWidgets.QTableWidgetItem()
-            icon = QtGui.QIcon()
-            icon.addPixmap(QtGui.QPixmap(i['path']+'/0.jpg'))
-            item.setIcon(icon)
-            self.tbKetqua.setItem(row_table - 1, 0, item)
-            item = QtWidgets.QTableWidgetItem()
-            icon = QtGui.QIcon()
-            icon.addPixmap(QtGui.QPixmap(i['path']+'/1.jpg'))
-            item.setIcon(icon)
-            self.tbKetqua.setItem(row_table - 1, 1, item)
-            item = QtWidgets.QTableWidgetItem()
-            icon = QtGui.QIcon()
-            icon.addPixmap(QtGui.QPixmap(i['path']+'/2.jpg'))
-            item.setIcon(icon)
-            self.tbKetqua.setItem(row_table - 1, 2, item)
-            item = QtWidgets.QTableWidgetItem()
-            icon = QtGui.QIcon()
-            icon.addPixmap(QtGui.QPixmap(i['path']+'/3.jpg'))
-            item.setIcon(icon)
-            self.tbKetqua.setItem(row_table - 1, 3, item)
-            item = QtWidgets.QTableWidgetItem()
-            icon = QtGui.QIcon()
-            icon.addPixmap(QtGui.QPixmap(i['path']+'/4.jpg'))
-            item.setIcon(icon)
-            self.tbKetqua.setItem(row_table - 1, 4, item)
-            item = QtWidgets.QTableWidgetItem()
-            icon = QtGui.QIcon()
-            icon.addPixmap(QtGui.QPixmap(i['path']+'/5.jpg'))
-            item.setIcon(icon)
-            self.tbKetqua.setItem(row_table - 1, 5, item)
-            item = QtWidgets.QTableWidgetItem()
-            number5 = CL.join_num(CL.res_num(i['path'],5))
-            item.setText(number5)
-            self.tbKetqua.setItem(row_table - 1, 6, item)
-            item = QtWidgets.QTableWidgetItem()
-            icon = QtGui.QIcon()
-            icon.addPixmap(QtGui.QPixmap(i['path']+'/6.jpg'))
-            item.setIcon(icon)
-            self.tbKetqua.setItem(row_table - 1, 7, item)
-            item = QtWidgets.QTableWidgetItem()
-            number6 = CL.join_num(CL.res_num(i['path'],6))
-            item.setText(number6)
-            self.tbKetqua.setItem(row_table - 1, 8, item)
-        # for valueim in array_path_image:
-        #     row_table += 1
-        #     self.tbKetqua.setRowCount(row_table)
-        #     print('Train image : ', valueim)
-        #     img = cv2.imread('img/' + valueim)
-        #     for i in range(10):
-        #         print(i)
-        #         arr_im = md.convert_color_befor_train(img, i)
-        #         rs = md.plot_image(md.array_result(arr_im)[0])
-        #         cropname = rs.split(' ')
-        #         if int(cropname[2].split('.')[0]) > int_max:
-        #             result_max = rs
-        #             int_max = int(cropname[2].split('.')[0])
-        #         if int(cropname[2].split('.')[0]) == 100:
-        #             self.add_item_to_table(row_table=row_table,result=rs,valueim=valueim,bool=False)
-        #             break
-        #         if i == 9:
-        #             self.add_item_to_table(row_table=row_table,result=result_max,valueim=valueim,bool=True)
-
+        try:
+            for i in arr_rs:
+                row_table += 1
+                self.add_rs_to_table(row_table=row_table,i=i)
+        except Exception as e:
+            print(e)
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -240,6 +240,7 @@ class Ui_MainWindow(object):
         self.btSave = QtWidgets.QPushButton(self.tab_2) #button save
         self.btSave.setGeometry(QtCore.QRect(320, 850, 93, 28))
         self.btSave.setObjectName("btSave")
+        self.btSave.clicked.connect(self.Save_image_in_table)
 
         self.btXuatExel = QtWidgets.QPushButton(self.tab_2) #button xuất excel
         self.btXuatExel.setGeometry(QtCore.QRect(630, 850, 93, 28))
