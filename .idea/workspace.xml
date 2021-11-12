@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f0c2154d-7d53-4190-a431-70067faf7677" name="Changes" comment="comment">
+    <list default="true" id="f0c2154d-7d53-4190-a431-70067faf7677" name="Changes" comment="Update Save">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Giao_dien_chuan_comment.py" beforeDir="false" afterPath="$PROJECT_DIR$/Giao_dien_chuan_comment.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -219,7 +218,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636686432085</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Update Save">
+      <created>1636698727429</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1636698727430</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -250,7 +256,8 @@
     <MESSAGE value="commit main and packages" />
     <MESSAGE value="Merge remote-tracking branch 'origin/main'" />
     <MESSAGE value="comment" />
-    <option name="LAST_COMMIT_MESSAGE" value="comment" />
+    <MESSAGE value="Update Save" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Save" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
