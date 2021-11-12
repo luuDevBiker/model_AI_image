@@ -9,7 +9,7 @@ import catAnh as ca
 import CodeColab2 as CL
 
 _path = ''
-
+list_row = []
 class Ui_MainWindow(object):
     '''
     mở file ảnh đồng thời hiện ảnh lên lbl ảnh nhận diện tab2 và lấy link path ảnh trong local
@@ -22,12 +22,6 @@ class Ui_MainWindow(object):
         pixmap = QPixmap(path)
         self.lblAnhnhandien.setPixmap(pixmap)
         _path = path
-    def Save_image_in_table(self):
-        count_row = self.tbKetqua.rowCount()
-        count_column = self.tbKetqua.columnCount()
-        for row in range(count_row):
-            num_rs = self.tbKetqua.item(row,6).text()
-            # for column in range(count_column):
     def convert_nparray_to_QPixmap(self, img):
         w, h, ch = img.shape
         # Convert resulting image to pixmap
@@ -38,6 +32,28 @@ class Ui_MainWindow(object):
         qpixmap = QPixmap(qimg)
 
         return qpixmap
+    def Save_image_in_table(self):
+        global list_row
+        count_row = self.tbKetqua.rowCount()
+        for row in range(count_row):
+
+
+            index_im = 0
+            num_rs = self.tbKetqua.item(row,6).text()
+            for item in num_rs:
+                try:
+                    print('vào')
+                    index = len(os.listdir('img/'+item))
+                    print(1)
+                    res = [i['rs_column5']['anh_'+str(index_im)] for i in list_row if i['row'] == row][0]
+                    print(1)
+                    print(res)
+                    cv2.imwrite('img/'+item+'/'+str(index)+'.jpg',res)
+                    index_im+=1
+
+                except Exception as e :
+                    print('error Save image : ',e)
+
     def add_rs_to_table(self,row_table,i):
         try:
             self.tbKetqua.setRowCount(row_table)
@@ -73,7 +89,7 @@ class Ui_MainWindow(object):
             self.tbKetqua.setItem(row_table - 1, 5, item)
             try:
                 item = QtWidgets.QTableWidgetItem()
-                item.setText(i['rs_column5']['num_rs'])
+                item.setText(''.join(i['rs_column5']['num_rs']))
                 self.tbKetqua.setItem(row_table - 1, 6, item)
             except Exception as e:
                 print(e)
@@ -84,7 +100,7 @@ class Ui_MainWindow(object):
             self.tbKetqua.setItem(row_table - 1, 7, item)
             try:
                 item = QtWidgets.QTableWidgetItem()
-                item.setText(i['rs_column6']['num_rs'])
+                item.setText(''.join(i['rs_column6']['num_rs']))
                 self.tbKetqua.setItem(row_table - 1, 8, item)
             except Exception as e:
                 print(e)
@@ -93,8 +109,10 @@ class Ui_MainWindow(object):
             return "NaN"
     def train(self):
         global _path
+        global list_row
         print(_path)
         arr_rs = CL.call_all_testtest(_path)
+        list_row = arr_rs
         row_table = 1
         self.tbKetqua.setRowCount(row_table)
         self.tbKetqua.setColumnCount(9)
@@ -247,7 +265,7 @@ class Ui_MainWindow(object):
         self.btXuatExel.setObjectName("btXuatExel")
 
         self.label_6 = QtWidgets.QLabel(self.tab_2) #label dữ liệu nhận được
-        self.label_6.setGeometry(QtCore.QRect(540, 50, 111, 16))
+        self.label_6.setGeometry(QtCore.QRect(870, 50, 111, 16))
         self.label_6.setObjectName("label_6")
         #
         self.tabWidget.addTab(self.tab_2, "") #tạo tab nhận diện
