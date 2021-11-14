@@ -1,11 +1,10 @@
-import PySide2
 from PyQt5.QtGui import QPixmap, QImage
 from PyQt5.QtWidgets import QFileDialog
 from PyQt5 import QtCore, QtGui, QtWidgets
 import os
 import cv2
-import model as md
-import catAnh as ca
+
+import deskrewUtils
 import CodeColab2 as CL
 
 _path = ''
@@ -19,7 +18,9 @@ class Ui_MainWindow(object):
         global _path
         file_filter = 'Folder();;Image files (*.jpg *.gif)'
         path = QFileDialog.getOpenFileName(filter=file_filter)[0]
-        pixmap = QPixmap(path)
+        deskrewUtils.deskrew(path,700)
+
+        pixmap = QPixmap('otated.jpg')
         self.lblAnhnhandien.setPixmap(pixmap)
         _path = path
     def convert_nparray_to_QPixmap(self, img):
