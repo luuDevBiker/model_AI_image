@@ -1,10 +1,17 @@
+# import PySide2
+# import self as self
+import this
+
+from PyQt5.QtCore import QSize
 from PyQt5.QtGui import QPixmap, QImage
 from PyQt5.QtWidgets import QFileDialog
 from PyQt5 import QtCore, QtGui, QtWidgets
 import os
 import cv2
+from tensorflow.python.ops.linalg_ops import self_adjoint_eig
 
-import deskrewUtils
+import model as md
+import catAnh as ca
 import CodeColab2 as CL
 
 _path = ''
@@ -14,16 +21,73 @@ class Ui_MainWindow(object):
     mở file ảnh đồng thời hiện ảnh lên lbl ảnh nhận diện tab2 và lấy link path ảnh trong local
     lấy link path để chuyển vào hàm chuyển đồi ảnh gọi từ modul "model.py" tại hàm "train"
     '''
+
+
+    def openAnh(self):
+        global duongdan
+        global fileNames
+        # global _path
+        # file_filter = 'Folder();'
+        # path = QtWidgets.QFileDialog.getExistingDirectory(self, "Select Directory")
+        # print("AHHHHHHHHH")
+        dialog = QFileDialog()
+        dialog.setFileMode(QFileDialog.Directory)
+        dialog.setViewMode(QFileDialog.List)
+        if dialog.exec_():
+            fileNames = dialog.selectedFiles()
+            # print(fileNames)
+        list_File = os.listdir(fileNames[0])
+        # print(list_File)
+        anh = list_File[0]
+        nhan = fileNames[0]
+        textnhan = nhan[len(nhan)-1]
+        self.index = 0
+        duongdan = str(fileNames[0]) + "/" + str(anh)
+        pixmap = QPixmap(duongdan)
+        self.lblAnhnhandien_2.setScaledContents(True)
+        self.lblAnhnhandien_2.setPixmap(pixmap)
+        self.lblDuongdan.setText(duongdan)
+        self.label_4.setText(str(self.index + 1) + " / " + str(len(list_File)))
+        self.txtNhan.setText("Số "+textnhan)
+
+    def chuyenNext(self):
+        list_file = os.listdir(fileNames[0])
+        self.index += 1
+        tong = len(list_file)
+        if(self.index == tong):
+            self.index = 0
+        anh = list_file[self.index]
+        duongdan = str(fileNames[0]) + "/" + str(anh)
+        self.lblDuongdan.setText(duongdan)
+        self.label_4.setText(str(self.index + 1) + " / " + str(tong))
+        pixmap = QPixmap(duongdan)
+        self.lblAnhnhandien_2.setScaledContents(True)
+        self.lblAnhnhandien_2.setPixmap(pixmap)
+
+    def chuyenBack(self):
+        list_file = os.listdir(fileNames[0])
+        self.index -= 1
+        tong = len(list_file)
+        if(self.index == 0):
+            self.index = tong - 1
+        anh = list_file[self.index]
+        duongdan = str(fileNames[0]) + "/" + str(anh)
+        self.lblDuongdan.setText(duongdan)
+        self.label_4.setText(str(self.index + 1) + " / " + str(tong))
+        pixmap = QPixmap(duongdan)
+        self.lblAnhnhandien_2.setScaledContents(True)
+        self.lblAnhnhandien_2.setPixmap(pixmap)
+
+
     def openFile(self):
         global _path
         file_filter = 'Folder();;Image files (*.jpg *.gif)'
         path = QFileDialog.getOpenFileName(filter=file_filter)[0]
-        deskrewUtils.deskrew(path,700)
-
-        pixmap = QPixmap('rotated.jpg')
-        self.lblAnhnhandien.setPixmap(pixmap)
+        pixmap = QPixmap(path)
         self.lblAnhnhandien.setScaledContents(True)
+        self.lblAnhnhandien.setPixmap(pixmap)
         _path = path
+
     def convert_nparray_to_QPixmap(self, img):
         w, h, ch = img.shape
         # Convert resulting image to pixmap
@@ -154,7 +218,14 @@ class Ui_MainWindow(object):
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1878, 1000)
+        # MainWindow.resize(1878, 1000)
+        MainWindow.showMaximized()
+        MainWindow.setWindowFlags(MainWindow.windowFlags() | QtCore.Qt.CustomizeWindowHint)
+        MainWindow.setWindowFlags(MainWindow.windowFlags() & ~ QtCore.Qt.WindowMaximizeButtonHint)
+        # MainWindow.setFixedSize(1878, 1000)
+        # MainWindow.setFixedSize(MainWindow.width(), MainWindow.height())
+        # self.layout().setSizeConstraint(QLayout::SetFixedSize)
+        # self.setFixedSize(QSize(750, 400))
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
 
@@ -166,51 +237,58 @@ class Ui_MainWindow(object):
         '''label tab khác'''
 
         self.label = QtWidgets.QLabel(self.tab) #tạo label text danh sách đã chọn.
-        self.label.setGeometry(QtCore.QRect(0, 10, 141, 16))
+        self.label.setGeometry(QtCore.QRect(30, 20, 141, 35))
         self.label.setObjectName("label")
 
         self.label_2 = QtWidgets.QLabel(self.tab) #label nhãn
-        self.label_2.setGeometry(QtCore.QRect(460, 80, 55, 16))
+        self.label_2.setGeometry(QtCore.QRect(1100, 80, 55, 35))
         self.label_2.setObjectName("label_2")
 
         self.txtNhan = QtWidgets.QLineEdit(self.tab) #tạo text nhập nhãn
-        self.txtNhan.setGeometry(QtCore.QRect(530, 80, 131, 22))
+        self.txtNhan.setGeometry(QtCore.QRect(1180, 80, 300, 30))
         self.txtNhan.setObjectName("txtNhan")
 
         self.btOpen = QtWidgets.QPushButton(self.tab) #tạo button open
-        self.btOpen.setGeometry(QtCore.QRect(460, 170, 93, 28))
+        self.btOpen.setGeometry(QtCore.QRect(1100, 200, 120, 35))
         self.btOpen.setObjectName("btOpen")
-        # self.btOpen.clicked.connect(self.openFile)
+        self.btOpen.clicked.connect(self.openAnh)
 
         self.btTrain = QtWidgets.QPushButton(self.tab) #tạo button train
-        self.btTrain.setGeometry(QtCore.QRect(620, 170, 93, 28))
+        self.btTrain.setGeometry(QtCore.QRect(1340, 200, 120, 35))
         self.btTrain.setObjectName("btTrain")
         # self.btTrain.clicked.connect()
 
         self.label_3 = QtWidgets.QLabel(self.tab) #tạo label  tiến trình
-        self.label_3.setGeometry(QtCore.QRect(560, 290, 61, 16))
+        self.label_3.setGeometry(QtCore.QRect(1260, 310, 61, 35))
         self.label_3.setObjectName("label_3")
 
         self.proTientrinh = QtWidgets.QProgressBar(self.tab) #tạo progressbar tiến trình
-        self.proTientrinh.setGeometry(QtCore.QRect(460, 340, 291, 23))
-        self.proTientrinh.setProperty("value", 10)
+        self.proTientrinh.setGeometry(QtCore.QRect(1100, 360, 400, 35))
+        self.proTientrinh.setProperty("value", 5)
         self.proTientrinh.setObjectName("proTientrinh")
 
         self.label_4 = QtWidgets.QLabel(self.tab) #tạo label hiển thị số trang 1/9
-        self.label_4.setGeometry(QtCore.QRect(180, 440, 41, 31))
+        self.label_4.setGeometry(QtCore.QRect(340, 860, 41, 35))
         self.label_4.setObjectName("label_4")
 
         self.btBack = QtWidgets.QPushButton(self.tab) #tạo button black
-        self.btBack.setGeometry(QtCore.QRect(60, 440, 93, 28))
+        self.btBack.setGeometry(QtCore.QRect(200, 860, 93, 28))
         self.btBack.setObjectName("btBack")
+        self.btBack.clicked.connect(self.chuyenBack)
 
         self.btNext = QtWidgets.QPushButton(self.tab) #button next
-        self.btNext.setGeometry(QtCore.QRect(240, 440, 93, 28))
+        self.btNext.setGeometry(QtCore.QRect(420, 860, 93, 28))
         self.btNext.setObjectName("btNext")
+        self.btNext.clicked.connect(self.chuyenNext)
 
         self.lblAnhnhandien_2 = QtWidgets.QLabel(self.tab) #hãn đưỡng dẫn ảnh
-        self.lblAnhnhandien_2.setGeometry(QtCore.QRect(0, 40, 361, 351))
+        self.lblAnhnhandien_2.setGeometry(QtCore.QRect(30, 60, 761, 680))
+        self.lblAnhnhandien_2.setStyleSheet("border: 1px solid rgb(23, 152, 68);")
         self.lblAnhnhandien_2.setObjectName("lblAnhnhandien_2")
+
+        self.lblDuongdan = QtWidgets.QLabel(self.tab)
+        self.lblDuongdan.setGeometry(QtCore.QRect(30, 760, 350, 20))
+        self.lblDuongdan.setObjectName("lblDuongdan")
 
         self.tabWidget.addTab(self.tab, "") #tạo tab dạy máy
         self.tab_2 = QtWidgets.QWidget()
@@ -275,53 +353,54 @@ class Ui_MainWindow(object):
         self.tab_3.setObjectName("tab_3")
 
         self.label_7 = QtWidgets.QLabel(self.tab_3) #label thông tin cần lấy
-        self.label_7.setGeometry(QtCore.QRect(10, 10, 111, 16))
+        self.label_7.setGeometry(QtCore.QRect(30, 10, 111, 35))
         self.label_7.setObjectName("label_7")
 
         self.label_8 = QtWidgets.QLabel(self.tab_3) #label tên
-        self.label_8.setGeometry(QtCore.QRect(10, 40, 31, 16))
+        self.label_8.setGeometry(QtCore.QRect(30, 40, 31, 35))
         self.label_8.setObjectName("label_8")
 
         self.txtName = QtWidgets.QLineEdit(self.tab_3) # text nhập tên
-        self.txtName.setGeometry(QtCore.QRect(10, 70, 161, 22))
+        self.txtName.setGeometry(QtCore.QRect(30, 70, 210, 35))
         self.txtName.setObjectName("txtName")
 
         self.label_9 = QtWidgets.QLabel(self.tab_3) #label vị trí
-        self.label_9.setGeometry(QtCore.QRect(340, 40, 55, 16))
+        self.label_9.setGeometry(QtCore.QRect(440, 40, 55, 35))
         self.label_9.setObjectName("label_9")
 
         self.txtIndex = QtWidgets.QLineEdit(self.tab_3) #text nhập vị trí
-        self.txtIndex.setGeometry(QtCore.QRect(340, 70, 113, 22))
+        self.txtIndex.setGeometry(QtCore.QRect(440, 70, 210, 35))
         self.txtIndex.setObjectName("txtIndex")
 
         self.label_10 = QtWidgets.QLabel(self.tab_3) # label loại
-        self.label_10.setGeometry(QtCore.QRect(590, 40, 55, 16))
+        self.label_10.setGeometry(QtCore.QRect(1350, 40, 55, 35))
         self.label_10.setObjectName("label_10")
 
         self.cbbLoai = QtWidgets.QComboBox(self.tab_3) #cbb loại
-        self.cbbLoai.setGeometry(QtCore.QRect(590, 80, 141, 22))
+        self.cbbLoai.setGeometry(QtCore.QRect(1350, 80, 161, 35))
         self.cbbLoai.setObjectName("cbbLoai")
 
         self.lbl_Thiet_Lap = QtWidgets.QLabel(self.tab_3) #label bảng thiết lập
-        self.lbl_Thiet_Lap.setGeometry(QtCore.QRect(20, 120, 81, 16))
+        self.lbl_Thiet_Lap.setGeometry(QtCore.QRect(30, 120, 140, 35))
         self.lbl_Thiet_Lap.setObjectName("blbThietLap")
         '''tb thiết lập tab3'''
-        # self.tbBangMau = QtWidgets.QTableWidget(self.tab_3) #tb bảng mẫu (hiển thị bảng thiết lập
-        # self.tbBangMau.setGeometry(QtCore.QRect(20, 140, 361, 351))
-        # self.tbBangMau.setObjectName("tbBangMau")
-        # self.tbBangMau.setColumnCount(0)
-        # self.tbBangMau.setRowCount(0)
+
+        self.tbBangMau = QtWidgets.QTableWidget(self.tab_3) #tb bảng mẫu (hiển thị bảng thiết lập
+        self.tbBangMau.setGeometry(QtCore.QRect(20, 150, 950, 700))
+        self.tbBangMau.setObjectName("tbBangMau")
+        self.tbBangMau.setColumnCount(0)
+        self.tbBangMau.setRowCount(0)
 
         self.btThietlap = QtWidgets.QPushButton(self.tab_3) #button thiết lập cấu hình
-        self.btThietlap.setGeometry(QtCore.QRect(580, 190, 121, 28))
+        self.btThietlap.setGeometry(QtCore.QRect(1350, 190, 161, 35))
         self.btThietlap.setObjectName("btThietlap")
 
         self.pushButton_2 = QtWidgets.QPushButton(self.tab_3) #button mới
-        self.pushButton_2.setGeometry(QtCore.QRect(580, 280, 121, 28))
+        self.pushButton_2.setGeometry(QtCore.QRect(1350, 280, 161, 35))
         self.pushButton_2.setObjectName("pushButton_2")
 
         self.btSudung = QtWidgets.QPushButton(self.tab_3) #button sử dụng
-        self.btSudung.setGeometry(QtCore.QRect(580, 380, 121, 28))
+        self.btSudung.setGeometry(QtCore.QRect(1350, 380, 161, 35))
         self.btSudung.setObjectName("btSudung")
 
         self.tabWidget.addTab(self.tab_3, "") #tạo tab cấu hình
@@ -341,13 +420,9 @@ class Ui_MainWindow(object):
         self.label_4.setText(_translate("MainWindow", "1/9"))
         self.btBack.setText(_translate("MainWindow", "<<"))
         self.btNext.setText(_translate("MainWindow", ">>"))
-        self.lblDuongdan = QtWidgets.QLabel(self.tab)
-        self.lblDuongdan.setGeometry(QtCore.QRect(60, 490, 271, 20))
-        self.lblDuongdan.setObjectName("lblDuongdan")
         # label image train
-        self.lblAnhnhandien_2.setText(_translate("MainWindow", "TextLabel"))
-        self.lblDuongdan.setText(_translate("MainWindow", "Duong_dan_anh"))
-
+        self.lblAnhnhandien_2.setText(_translate("MainWindow", "Label hiển thị ảnh dạy"))
+        self.lblDuongdan.setText(_translate("MainWindow", ""))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("MainWindow", "Dạy máy"))
         self.btOpenfile.setText(_translate("MainWindow", "Open File"))
         self.label_5.setText(_translate("MainWindow", "Ảnh nhận diện:"))
@@ -376,6 +451,7 @@ if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
+    # QtWidgets.QMainWindow.resizeEvent(self, event)
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
     MainWindow.show()
