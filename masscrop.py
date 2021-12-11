@@ -7,12 +7,16 @@ try:
 except ImportError:
     import Image
 import pathlib
-import shutil
+
+import deskrewUtils as dk
+
+count: int = 0
 
 
-def crop_image_lagre(link):
-    print(link)
-    img = cv2.imread(link, 0)
+def crop_written_cell(path):
+    print(path)
+    global count
+    img = cv2.imread(path, 0)
     img_crop = img.copy()
     thresh, img_bin = cv2.threshold(img, 128, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
     img_bin = 255 - img_bin
@@ -96,35 +100,45 @@ def crop_image_lagre(link):
     p.mkdir(exist_ok=True)
 
     outer = []
-    count = 0
+
     for i in range(len(finalboxes)):
-        if i > 1 and i != 14 and i != 16:
+        if i > 1 and i != 13 and i != 14:
             p = pathlib.Path(path)
             p.mkdir(exist_ok=True)
             for j in range(len(finalboxes[i])):
                 if len(finalboxes[i][j]) == 0:
                     outer.append(' ')
                 else:
-                    for k in range(len(finalboxes[i][j])):
-                        y, x, w, h = finalboxes[i][j][k][0], finalboxes[i][j][k][1], finalboxes[i][j][k][2], \
-                                     finalboxes[i][j][k][3]
-                        crop_img = img_crop[x: x + h - 2, y: y + w - 10]
-                        w, h = crop_img.shape
-                        crop_img = cv2.resize(crop_img, (h * 2, w * 2))
-                        crop_img = cv2.copyMakeBorder(crop_img, 30, 30, 30, 30, cv2.BORDER_CONSTANT, None,
-                                                      value=[255, 255, 255])
-                        kernel = np.ones((4, 4), np.uint8)
-                        crop_img = cv2.erode(crop_img, kernel, iterations=1)
-                        # crop_img = cv2.dilate(crop_img, kernel, iterations=3)
-                        path3 = path + '/' + str(count) + ".jpg"
-                        count += 1
-                        cv2.imwrite(path3, crop_img)
+                    if j == 5 or j == 6:
+                        for k in range(len(finalboxes[i][j])):
+                            y, x, w, h = finalboxes[i][j][k][0], finalboxes[i][j][k][1], finalboxes[i][j][k][2], \
+                                         finalboxes[i][j][k][3]
+                            crop_img = img_crop[x: x + h - 2, y: y + w - 10]
+                            w, h = crop_img.shape
+                            crop_img = cv2.resize(crop_img, (h * 2, w * 2))
+                            crop_img = cv2.copyMakeBorder(crop_img, 30, 30, 30, 30, cv2.BORDER_CONSTANT, None,
+                                                          value=[255, 255, 255])
+                            kernel = np.ones((4, 4), np.uint8)
+                            crop_img = cv2.erode(crop_img, kernel, iterations=1)
+                            # crop_img = cv2.dilate(crop_img, kernel, iterations=3)
+                            path3 = path + '/' + str(count) + ".jpg"
+                            count += 1
+                            cv2.imwrite(path3, crop_img)
+    print("last: " + str(count))
 
 
-def load_list_file_Anhnhan():
-    path_foder = r'cropped'
-    array_path = os.listdir(path_foder)
+def load_all():
+    path_folder = r'DataThanhHV[ZaloPC_Folder]'
+    array_path = os.listdir(path_folder)
+    print(len(array_path))
+    global count
+    count = 1
     for i in range(len(array_path)):
-        array_path[i] = path_foder + '/' + array_path[i]
-        # print(array_path[i])
-    return array_path
+        array_path[i] = path_folder + '/' + array_path[i]
+        # crop_written_cell(array_path[i])
+        dk.deskrew(array_path[i], 800)
+        print(i)
+    # return array_path
+
+
+load_all()

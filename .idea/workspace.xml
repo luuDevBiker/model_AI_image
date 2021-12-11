@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f0c2154d-7d53-4190-a431-70067faf7677" name="Changes" comment="comment">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/pythonProject2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pythonProject2.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="f0c2154d-7d53-4190-a431-70067faf7677" name="Changes" comment="thêm code cắt lấy ảnh làm dataset thủ công">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Giao_dien_chuan_comment.py" beforeDir="false" afterPath="$PROJECT_DIR$/Giao_dien_chuan_comment.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deskrewUtils.py" beforeDir="false" afterPath="$PROJECT_DIR$/deskrewUtils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/masscrop.py" beforeDir="false" afterPath="$PROJECT_DIR$/masscrop.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rotated.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/rotated.jpg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +21,17 @@
       <list>
         <option value="Python Script" />
       </list>
+    </option>
+  </component>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
     </option>
   </component>
   <component name="Git.Settings">
@@ -54,7 +66,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.masscrop">
+  <component name="RunManager" selected="Python.Giao_dien_chuan_comment">
     <configuration name="CodeColab" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="pythonProject2" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -84,7 +96,7 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="C:\Users\admin\Documents\model_AI\Scripts\python.exe" />
+      <option name="SDK_HOME" value="C:\Users\asash\AppData\Local\Programs\Python\Python39\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -174,8 +186,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.masscrop" />
         <item itemvalue="Python.Giao_dien_chuan_comment" />
+        <item itemvalue="Python.masscrop" />
         <item itemvalue="Python.CodeColab" />
         <item itemvalue="Python.Remove_straight_line" />
         <item itemvalue="Python.demo" />
@@ -190,7 +202,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1632843159954</updated>
-      <workItem from="1639148263744" duration="696000" />
+      <workItem from="1639148263744" duration="15163000" />
     </task>
     <task id="LOCAL-00001" summary="commit main and packages">
       <created>1632909438485</created>
@@ -255,7 +267,21 @@
       <option name="project" value="LOCAL" />
       <updated>1636875604017</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="10/12 thành sửa">
+      <created>1639150219664</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1639150219664</updated>
+    </task>
+    <task id="LOCAL-00011" summary="thêm code cắt lấy ảnh làm dataset thủ công">
+      <created>1639150357552</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1639150357552</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -290,7 +316,9 @@
     <MESSAGE value="comment" />
     <MESSAGE value="Update Save" />
     <MESSAGE value="Update code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update code" />
+    <MESSAGE value="10/12 thành sửa" />
+    <MESSAGE value="thêm code cắt lấy ảnh làm dataset thủ công" />
+    <option name="LAST_COMMIT_MESSAGE" value="thêm code cắt lấy ảnh làm dataset thủ công" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -304,6 +332,7 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/model_AI_image$Giao_dien_chuan_comment.coverage" NAME="Giao_dien_chuan_comment Coverage Results" MODIFIED="1636873361930" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/model_AI_image$Giao_dien_chuan_comment.coverage" NAME="Giao_dien_chuan_comment Coverage Results" MODIFIED="1639241510860" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/model_AI_image$masscrop.coverage" NAME="masscrop Coverage Results" MODIFIED="1639234489767" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
