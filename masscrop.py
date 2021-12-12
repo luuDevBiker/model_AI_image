@@ -2,28 +2,30 @@ import os
 import cv2
 import numpy as np
 
-try:
-    from PIL import Image
-except ImportError:
-    import Image
-import pathlib
+from pathlib import Path
+import shutil
+
 
 import deskrewUtils as dk
 
-count: int = 0
+global count
 
 
 def crop_written_cell(path):
     print(path)
     global count
-    img = cv2.imread(path, 0)
+    dk.deskrew(path, 700)
+    img = cv2.imread('rotated.jpg', 0)
     img_crop = img.copy()
+
     thresh, img_bin = cv2.threshold(img, 128, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
     img_bin = 255 - img_bin
+
     kernel_len = np.array(img).shape[1] // 100
     ver_kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (1, kernel_len))
     hor_kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (kernel_len, 1))
     kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (2, 2))
+
     image_1 = cv2.erode(img_bin, ver_kernel, iterations=3)
     vertical_lines = cv2.dilate(image_1, ver_kernel, iterations=3)
 
@@ -34,8 +36,7 @@ def crop_written_cell(path):
     img_vh = cv2.erode(~img_vh, kernel, iterations=2)
     thresh, img_vh = cv2.threshold(img_vh, 128, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
 
-    bitxor = cv2.bitwise_xor(img, img_vh)
-    contours, hierarchy = cv2.findContours(img_vh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    contours = cv2.findContours(img_vh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)[0]
 
     def sort_contours(cnts, method="left-to-right"):
         reverse = False
@@ -96,47 +97,61 @@ def crop_written_cell(path):
             lis[indexing].append(row[i][j])
         finalboxes.append(lis)
     path = r"cropped"
-    p = pathlib.Path(path)
+    p = Path(path)
     p.mkdir(exist_ok=True)
 
     outer = []
 
     for i in range(len(finalboxes)):
-        if i > 1 and i != 13 and i != 14:
-            p = pathlib.Path(path)
+        print(i)
+        if (i % 2) != 0:
+            p = Path(path)
             p.mkdir(exist_ok=True)
+            typeocr = 0
             for j in range(len(finalboxes[i])):
                 if len(finalboxes[i][j]) == 0:
                     outer.append(' ')
                 else:
-                    if j == 5 or j == 6:
-                        for k in range(len(finalboxes[i][j])):
-                            y, x, w, h = finalboxes[i][j][k][0], finalboxes[i][j][k][1], finalboxes[i][j][k][2], \
-                                         finalboxes[i][j][k][3]
-                            crop_img = img_crop[x: x + h - 2, y: y + w - 10]
-                            w, h = crop_img.shape
-                            crop_img = cv2.resize(crop_img, (h * 2, w * 2))
-                            crop_img = cv2.copyMakeBorder(crop_img, 30, 30, 30, 30, cv2.BORDER_CONSTANT, None,
-                                                          value=[255, 255, 255])
-                            kernel = np.ones((4, 4), np.uint8)
-                            crop_img = cv2.erode(crop_img, kernel, iterations=1)
-                            # crop_img = cv2.dilate(crop_img, kernel, iterations=3)
-                            path3 = path + '/' + str(count) + ".jpg"
-                            count += 1
-                            cv2.imwrite(path3, crop_img)
+                    # if j == 5 or j == 6:
+                    for k in range(len(finalboxes[i][j])):
+                        y, x, w, h = finalboxes[i][j][k][0], finalboxes[i][j][k][1], finalboxes[i][j][k][2], \
+                                     finalboxes[i][j][k][3]
+                        crop_img = img_crop[x: x + h, y: y + w]
+                        w, h = crop_img.shape
+                        crop_img = cv2.resize(crop_img, (h * 2, w * 2))
+                        # crop_img = cv2.copyMakeBorder(crop_img, 30, 30, 30, 30, cv2.BORDER_CONSTANT, None,
+                        #                               value=[255, 255, 255])
+                        kernel = np.ones((4, 4), np.uint8)
+                        crop_img = cv2.erode(crop_img, kernel, iterations=1)
+                        # crop_img = cv2.dilate(crop_img, kernel, iterations=3)
+
+                        p = Path(path + '/' + str(typeocr))
+                        p.mkdir(exist_ok=True)
+
+                        path3 = path + '/' + str(typeocr) + '/' + str(j) + '-' + str(count) + ".jpg"
+                        # path3 = path + '/' + str(count) + ".jpg"
+                        typeocr += 1
+                        count += 1
+                        print(path3)
+                        # cv2.imshow('', crop_img)
+                        # cv2.waitKey(0)
+                        cv2.imwrite(path3, crop_img)
     print("last: " + str(count))
 
 
 def load_all():
-    path_folder = r'DataThanhHV[ZaloPC_Folder]'
+    # path_folder = r'DataThanhHV[ZaloPC_Folder]'
+    path_folder = r'raw'
     array_path = os.listdir(path_folder)
     print(len(array_path))
     global count
     count = 1
+    dirpath = Path('cropped')
+    if dirpath.exists() and dirpath.is_dir():
+        shutil.rmtree(dirpath)
     for i in range(len(array_path)):
         array_path[i] = path_folder + '/' + array_path[i]
-        # crop_written_cell(array_path[i])
-        dk.deskrew(array_path[i], 800)
+        crop_written_cell(array_path[i])
         print(i)
     # return array_path
 

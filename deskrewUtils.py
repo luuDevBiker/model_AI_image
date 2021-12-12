@@ -16,13 +16,13 @@ def deskrew(src, height):
     coords = np.column_stack(np.where(thresh > 0))
 
     angle = cv2.minAreaRect(coords)[-1]
-    print("Angle1:", angle)
+    # print("Angle1:", angle)
     if angle < 45:
         angle = - angle
     else:
         angle = 90 - angle
 
-    print("Angle2:", angle)
+    # print("Angle2:", angle)
     (h, w) = image.shape[:2]  # 0,1
     center = (w // 2, h // 2)
     M = cv2.getRotationMatrix2D(center, angle, 1.0)
@@ -31,9 +31,9 @@ def deskrew(src, height):
     # cv2.imshow('img', rotated)
     # cv2.waitKey(0)
 
-    print("[INFO] angle: {:.3f}".format(angle))
+    # print("[INFO] angle: {:.3f}".format(angle))
 
     # cv2.imshow("Rotated", rotated)
     cv2.imwrite("rotated.jpg", rotated)
-    # return rotated
+    return rotated
 # cv2.waitKey()
