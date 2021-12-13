@@ -31,7 +31,7 @@ def deskrew(src, height):
     # cv2.imshow('img', rotated)
     # cv2.waitKey(0)
 
-    # print("[INFO] angle: {:.3f}".format(angle))
+    print("[INFO] angle: {:.3f}".format(angle))
 
     # cv2.imshow("Rotated", rotated)
     cv2.imwrite("rotated.jpg", rotated)

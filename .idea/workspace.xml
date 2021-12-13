@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f0c2154d-7d53-4190-a431-70067faf7677" name="Changes" comment="code tab 1 + sửa code lấy ảnh quay thẳng để nhận diện">
-      <change afterPath="$PROJECT_DIR$/raw/image-000.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/raw/image-001.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/raw/image-002.jpg" afterDir="false" />
+    <list default="true" id="f0c2154d-7d53-4190-a431-70067faf7677" name="Changes" comment="sửa code main + thêm code cắt dataset">
+      <change afterPath="$PROJECT_DIR$/raw/image-003.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/raw/image-004.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catAnh.py" beforeDir="false" afterPath="$PROJECT_DIR$/catAnh.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodeColab2.py" beforeDir="false" afterPath="$PROJECT_DIR$/CodeColab2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/deskrewUtils.py" beforeDir="false" afterPath="$PROJECT_DIR$/deskrewUtils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/img/0/0.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/img/0/1.jpg" beforeDir="false" />
@@ -251,7 +250,7 @@
       <updated>1632843159954</updated>
       <workItem from="1639148263744" duration="15163000" />
       <workItem from="1639242403247" duration="112000" />
-      <workItem from="1639289033944" duration="10918000" />
+      <workItem from="1639289033944" duration="22916000" />
     </task>
     <task id="LOCAL-00001" summary="commit main and packages">
       <created>1632909438485</created>
@@ -337,7 +336,14 @@
       <option name="project" value="LOCAL" />
       <updated>1639242487921</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="sửa code main + thêm code cắt dataset">
+      <created>1639321673714</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1639321673714</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -375,7 +381,8 @@
     <MESSAGE value="10/12 thành sửa" />
     <MESSAGE value="thêm code cắt lấy ảnh làm dataset thủ công" />
     <MESSAGE value="code tab 1 + sửa code lấy ảnh quay thẳng để nhận diện" />
-    <option name="LAST_COMMIT_MESSAGE" value="code tab 1 + sửa code lấy ảnh quay thẳng để nhận diện" />
+    <MESSAGE value="sửa code main + thêm code cắt dataset" />
+    <option name="LAST_COMMIT_MESSAGE" value="sửa code main + thêm code cắt dataset" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -391,7 +398,7 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/model_AI_image$Giao_dien_chuan_comment.coverage" NAME="Giao_dien_chuan_comment Coverage Results" MODIFIED="1639298577451" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/model_AI_image$test.coverage" NAME="test Coverage Results" MODIFIED="1639298242741" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/model_AI_image$masscrop.coverage" NAME="masscrop Coverage Results" MODIFIED="1639321362656" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/model_AI_image$masscrop.coverage" NAME="masscrop Coverage Results" MODIFIED="1639377957242" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/model_AI_image$croptest2.coverage" NAME="croptest2 Coverage Results" MODIFIED="1639307637104" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
