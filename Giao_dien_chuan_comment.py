@@ -106,15 +106,16 @@ class Ui_MainWindow(object):
         global _path
         file_filter = 'Folder();;Image files (*.jpg *.gif)'
         path = QFileDialog.getOpenFileName(filter=file_filter)[0]
+        if len(path) == 0:
+            return
         # image = deskrewUtils.deskrew(path, 700)
-        deskrewUtils.deskrew(path, 700)
-
-        pixmap = QPixmap('rotated.jpg')
-        # pixmap = QPixmap(image)
+        # deskrewUtils.deskrew(path, 700)
+        # pixmap = QPixmap('rotated.jpg')
+        pixmap = QPixmap(path)
         self.lblAnhnhandien.setPixmap(pixmap)
         self.lblAnhnhandien.setScaledContents(True)
-        # _path = path
-        _path = 'rotated.jpg'
+        _path = path
+        # _path = 'rotated.jpg'
 
     def convert_nparray_to_qpixmap(self, img):
         w, h, ch = img.shape
