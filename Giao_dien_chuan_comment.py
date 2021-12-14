@@ -6,12 +6,13 @@ import cv2
 
 import deskrewUtils
 import CodeColab2 as CL
+import saveExcel
 
 _path = ''
 list_row = []
-
-
-
+arr_rs = []
+header_arr = ["Số Thứ tự", "Mã Sinh viên", "Họ và Tên", "Lớp", "Ký tên", "Ảnh Document", "Document",
+              "Ảnh Presentation", "Presentation"]
 
 
 class Ui_MainWindow(object):
@@ -132,7 +133,6 @@ class Ui_MainWindow(object):
         global list_row
         count_row = self.tbKetqua.rowCount()
         for row in range(count_row):
-
             index_im = 0
             num_rs = self.tbKetqua.item(row, 6).text()
             for item in num_rs:
@@ -145,7 +145,6 @@ class Ui_MainWindow(object):
                     print(res)
                     cv2.imwrite('img/' + item + '/' + str(index) + '.jpg', res)
                     index_im += 1
-
                 except Exception as e:
                     print('error Save image : ', e)
 
@@ -202,49 +201,92 @@ class Ui_MainWindow(object):
         except Exception as e:
             print(e)
             return "NaN"
+        # try:
+        #     self.tbKetqua.setRowCount(row_table)
+        #     for j in range(len(header_arr)):
+        #         if j == 6:
+        #             print(j)
+        #             try:
+        #                 item = QtWidgets.QTableWidgetItem()
+        #                 item.setText(''.join(i['rs_column5']['num_rs']))
+        #                 self.tbKetqua.setItem(row_table - 1, 6, item)
+        #             except Exception as e:
+        #                 print(e)
+        #         elif j == 8:
+        #             print(j)
+        #             try:
+        #                 item = QtWidgets.QTableWidgetItem()
+        #                 item.setText(''.join(i['rs_column6']['num_rs']))
+        #                 self.tbKetqua.setItem(row_table - 1, 8, item)
+        #             except Exception as e:
+        #                 print(e)
+        #         else:
+        #             print(j)
+        #             item = QtWidgets.QTableWidgetItem()
+        #             icon = QtGui.QIcon()
+        #             icon.addPixmap(self.convert_nparray_to_qpixmap(i['column ' + str(j)]))
+        #             item.setIcon(icon)
+        #             self.tbKetqua.setItem(row_table - 1, j, item)
+        # except Exception as e:
+        #     print(e)
+        #     return "NaN"
 
     def train(self):
         global _path
         global list_row
         print(_path)
+        global arr_rs
         arr_rs = CL.call_all_testtest(_path)
         list_row = arr_rs
         row_table = 1
+
         self.tbKetqua.setRowCount(row_table)
         self.tbKetqua.setColumnCount(9)
-        item = QtWidgets.QTableWidgetItem()
-        item.setText("Số Thứ tự")
-        self.tbKetqua.setItem(0, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        item.setText("Mã Sinh viên")
-        self.tbKetqua.setItem(0, 1, item)
-        item = QtWidgets.QTableWidgetItem()
-        item.setText("Họ và Tên")
-        self.tbKetqua.setItem(0, 2, item)
-        item = QtWidgets.QTableWidgetItem()
-        item.setText("Lớp")
-        self.tbKetqua.setItem(0, 3, item)
-        item = QtWidgets.QTableWidgetItem()
-        item.setText("Ký tên")
-        self.tbKetqua.setItem(0, 4, item)
-        item = QtWidgets.QTableWidgetItem()
-        item.setText("Ảnh Document")
-        self.tbKetqua.setItem(0, 5, item)
-        item = QtWidgets.QTableWidgetItem()
-        item.setText("Document")
-        self.tbKetqua.setItem(0, 6, item)
-        item = QtWidgets.QTableWidgetItem()
-        item.setText("Ảnh Presentation")
-        self.tbKetqua.setItem(0, 7, item)
-        item = QtWidgets.QTableWidgetItem()
-        item.setText("Presentation")
-        self.tbKetqua.setItem(0, 8, item)
+        for x in range(len(header_arr)):
+            item = QtWidgets.QTableWidgetItem()
+            item.setText(header_arr[x])
+            self.tbKetqua.setItem(0, x, item)
         try:
             for i in arr_rs:
                 row_table += 1
                 self.add_rs_to_table(row_table=row_table, i=i)
         except Exception as e:
             print(e)
+
+    def get_table_data(self):
+        arr_data = []
+        try:
+            for i in range(len(arr_rs)):
+                row_data = []
+                for j in range(len(header_arr)):
+                    if j == 6 or 8:
+                        try:
+                            score = self.tbKetqua.item(i, j).text()
+                            if len(score) == 0:
+                                score = 0
+                            print(score)
+                            row_data.append(score)
+                        except Exception as e:
+                            print(e)
+                    else:
+                        image = arr_rs[i]['column ' + str(j)]
+                        row_data.append(image)
+                arr_data.append(row_data)
+        except Exception as e:
+            print(e)
+            return "NaN"
+        # for k in arr_data:
+        #     print(k.text())
+        print(len(arr_data))
+        print('Done!')
+
+    def save_as_excel(self):
+        print('Trying to save...')
+        if len(arr_rs) != 0:
+            print('Saving...')
+            saveExcel.create_excel_file(arr_rs)
+        else:
+            print('arr_rs empty')
 
     def setupui(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -374,6 +416,8 @@ class Ui_MainWindow(object):
         self.btXuatExel = QtWidgets.QPushButton(self.tab_2)  # button xuất excel
         self.btXuatExel.setGeometry(QtCore.QRect(630, 850, 93, 28))
         self.btXuatExel.setObjectName("btXuatExel")
+        # self.btXuatExel.clicked.connect(self.save_as_excel)
+        self.btXuatExel.clicked.connect(self.get_table_data)
 
         self.label_6 = QtWidgets.QLabel(self.tab_2)  # label dữ liệu nhận được
         self.label_6.setGeometry(QtCore.QRect(870, 50, 111, 16))
@@ -436,7 +480,7 @@ class Ui_MainWindow(object):
         self.tabWidget.addTab(self.tab_3, "")  # tạo tab cấu hình
         MainWindow.setCentralWidget(self.centralwidget)
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(1)  # Mặc định mở tab 2 khi khởi động
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -473,7 +517,7 @@ class Ui_MainWindow(object):
         self.btThietlap.setText(_translate("MainWindow", "Thiết lập cấu hình"))
         self.pushButton_2.setText(_translate("MainWindow", "Mới"))
         self.btSudung.setText(_translate("MainWindow", "Sử dụng cấu hình"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), _translate("MainWindow", "cấu hình"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), _translate("MainWindow", "Cấu hình"))
 
 
 if __name__ == "__main__":

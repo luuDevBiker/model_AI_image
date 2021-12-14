@@ -27,14 +27,21 @@ def deskrew(src):
 
     coords = np.column_stack(np.where(thresh > 0))
 
+    rect = cv2.minAreaRect(coords)
+    box = cv2.boxPoints(rect)
+    box = np.int0(box)
+    img_temp = image.copy()
+    img_temp = cv2.drawContours(img_temp, [box], 0, (0, 0, 255), 20)
+    resize_display_img(img_temp, 800)
+
     angle = cv2.minAreaRect(coords)[-1]
-    # print("Angle1:", angle)
+    print("Angle1:", angle)
     if angle < 45:
         angle = - angle
     else:
         angle = 90 - angle
 
-    # print("Angle2:", angle)
+    print("Angle2:", angle)
     (h, w) = image.shape[:2]  # 0,1
     center = (w // 2, h // 2)
     M = cv2.getRotationMatrix2D(center, angle, 1.0)
@@ -237,4 +244,4 @@ def load_all():
 # print(len(count))
 # print(count)
 
-deskrew('raw/image-005.jpg')
+deskrew('raw/image-004.jpg')
