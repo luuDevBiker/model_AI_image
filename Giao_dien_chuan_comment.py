@@ -115,6 +115,7 @@ class Ui_MainWindow(object):
         pixmap = QPixmap(path)
         self.lblAnhnhandien.setPixmap(pixmap)
         self.lblAnhnhandien.setScaledContents(True)
+        self.btTrichxuat.setEnabled(True)
         _path = path
         # _path = 'rotated.jpg'
 
@@ -181,23 +182,19 @@ class Ui_MainWindow(object):
             icon.addPixmap(self.convert_nparray_to_qpixmap(i['column 5']))
             item.setIcon(icon)
             self.tbKetqua.setItem(row_table - 1, 5, item)
-            try:
-                item = QtWidgets.QTableWidgetItem()
-                item.setText(''.join(i['rs_column5']['num_rs']))
-                self.tbKetqua.setItem(row_table - 1, 6, item)
-            except Exception as e:
-                print(e)
+            item = QtWidgets.QTableWidgetItem()
+            item.setText(''.join(i['rs_column5']['num_rs']))
+            self.tbKetqua.setItem(row_table - 1, 6, item)
             item = QtWidgets.QTableWidgetItem()
             icon = QtGui.QIcon()
             icon.addPixmap(self.convert_nparray_to_qpixmap(i['column 6']))
             item.setIcon(icon)
             self.tbKetqua.setItem(row_table - 1, 7, item)
-            try:
-                item = QtWidgets.QTableWidgetItem()
-                item.setText(''.join(i['rs_column6']['num_rs']))
-                self.tbKetqua.setItem(row_table - 1, 8, item)
-            except Exception as e:
-                print(e)
+            item = QtWidgets.QTableWidgetItem()
+            item.setText(''.join(i['rs_column6']['num_rs']))
+            self.tbKetqua.setItem(row_table - 1, 8, item)
+            self.btSave.setEnabled(True)
+            self.btXuatExel.setEnabled(True)
         except Exception as e:
             print(e)
             return "NaN"
@@ -232,6 +229,7 @@ class Ui_MainWindow(object):
         #     return "NaN"
 
     def train(self):
+        print('Extracting data...')
         global _path
         global list_row
         print(_path)
@@ -252,24 +250,36 @@ class Ui_MainWindow(object):
                 self.add_rs_to_table(row_table=row_table, i=i)
         except Exception as e:
             print(e)
+        print('Done!')
 
     def get_table_data(self):
+        print('Getting table data...')
         arr_data = []
         try:
             for i in range(len(arr_rs)):
+                # if i == 0:
+                #     continue  # Bỏ qua cột tiêu đề
                 row_data = []
                 for j in range(len(header_arr)):
-                    if j == 6 or 8:
+                    # print('i: ' + str(i) + ' j: ' + str(j))
+                    if j == 6 or j == 8:    # Chỉ lấy cột điểm
                         try:
-                            score = self.tbKetqua.item(i, j).text()
-                            if len(score) == 0:
+                            cell_item = self.tbKetqua.item(i, j)
+                            if cell_item is None:
                                 score = 0
-                            print(score)
-                            row_data.append(score)
+                            else:
+                                score = cell_item.text()
+                            # print('score: ' + str(score))
+                            row_data.append(str(score))
                         except Exception as e:
                             print(e)
                     else:
-                        image = arr_rs[i]['column ' + str(j)]
+                        k = j   # code hack do 2 cột ảnh cạnh nhau
+                        if j == 7:
+                            k = 6
+                        image = arr_rs[i]['column ' + str(k)]
+                        # cv2.imshow('column: ' + str(k), image)
+                        # cv2.waitKey(0)
                         row_data.append(image)
                 arr_data.append(row_data)
         except Exception as e:
@@ -277,14 +287,19 @@ class Ui_MainWindow(object):
             return "NaN"
         # for k in arr_data:
         #     print(k.text())
-        print(len(arr_data))
+        # print(len(arr_data) + 1)
         print('Done!')
+        # temp_img = arr_data[0][0]
+        # cv2.imshow('', temp_img)
+        # cv2.waitKey(0)
+        return arr_data
 
     def save_as_excel(self):
         print('Trying to save...')
         if len(arr_rs) != 0:
             print('Saving...')
-            saveExcel.create_excel_file(arr_rs)
+            saveExcel.create_excel_file(self.get_table_data())
+            print('Saved!')
         else:
             print('arr_rs empty')
 
@@ -406,18 +421,21 @@ class Ui_MainWindow(object):
         self.btTrichxuat = QtWidgets.QPushButton(self.tab_2)  # button trích xuất
         self.btTrichxuat.setGeometry(QtCore.QRect(70, 850, 93, 28))
         self.btTrichxuat.setObjectName("btTrichxuat")
+        self.btTrichxuat.setEnabled(False)
         self.btTrichxuat.clicked.connect(self.train)
 
         self.btSave = QtWidgets.QPushButton(self.tab_2)  # button save
         self.btSave.setGeometry(QtCore.QRect(320, 850, 93, 28))
         self.btSave.setObjectName("btSave")
+        self.btSave.setEnabled(False)
         self.btSave.clicked.connect(self.save_image_in_table)
 
         self.btXuatExel = QtWidgets.QPushButton(self.tab_2)  # button xuất excel
         self.btXuatExel.setGeometry(QtCore.QRect(630, 850, 93, 28))
         self.btXuatExel.setObjectName("btXuatExel")
-        # self.btXuatExel.clicked.connect(self.save_as_excel)
-        self.btXuatExel.clicked.connect(self.get_table_data)
+        self.btXuatExel.setEnabled(False)
+        self.btXuatExel.clicked.connect(self.save_as_excel)
+        # self.btXuatExel.clicked.connect(self.get_table_data)
 
         self.label_6 = QtWidgets.QLabel(self.tab_2)  # label dữ liệu nhận được
         self.label_6.setGeometry(QtCore.QRect(870, 50, 111, 16))
