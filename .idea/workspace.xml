@@ -4,251 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f0c2154d-7d53-4190-a431-70067faf7677" name="Changes" comment="loop phần vẽ giao diện, thêm code xuất file excel vẫn cần sửa">
-      <change beforePath="$PROJECT_DIR$/.idea/pythonProject2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pythonProject2.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_0/0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_0/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_0/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_0/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_0/4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_0/5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_0/7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_1/5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_1/6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_10/0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_10/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_10/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_10/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_10/4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_10/5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_10/6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_10/7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_11/0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_11/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_11/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_11/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_11/4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_11/5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_11/6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_11/7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_12/0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_12/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_12/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_12/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_12/4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_12/5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_12/6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_12/7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_13/0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_13/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_13/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_13/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_13/4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_13/5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_13/7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_14/5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_14/6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_15/0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_15/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_15/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_15/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_15/4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_15/5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_15/6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_15/7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_16/0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_16/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_16/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_16/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_16/4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_16/5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_16/6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_16/7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_17/0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_17/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_17/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_17/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_17/4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_17/5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_17/6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_17/7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_18/0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_18/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_18/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_18/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_18/4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_18/5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_18/6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_18/7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_19/0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_19/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_19/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_19/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_19/4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_19/5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_19/6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_19/7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_2/0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_2/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_2/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_2/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_2/4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_2/5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_2/6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_2/7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_20/0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_20/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_20/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_20/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_20/4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_20/5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_20/6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_20/7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_21/0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_21/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_21/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_21/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_21/4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_21/5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_21/6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_21/7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_22/0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_22/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_22/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_22/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_22/4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_22/5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_22/6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_22/7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_23/0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_23/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_23/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_23/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_23/4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_23/5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_23/6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_23/7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_24/0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_24/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_24/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_24/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_24/4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_24/5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_24/6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_24/7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_25/0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_25/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_25/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_25/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_25/4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_25/5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_25/6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_25/7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_3/0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_3/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_3/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_3/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_3/4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_3/5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_3/6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_3/7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_4/0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_4/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_4/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_4/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_4/4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_4/5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_4/6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_4/7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_5/0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_5/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_5/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_5/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_5/4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_5/5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_5/6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_5/7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_6/0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_6/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_6/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_6/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_6/4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_6/5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_6/6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_6/7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_7/0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_7/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_7/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_7/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_7/4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_7/5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_7/6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_7/7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_8/0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_8/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_8/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_8/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_8/4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_8/5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_8/6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_8/7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_9/0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_9/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_9/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_9/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_9/4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_9/5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_9/6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anh_nhan/row_9/7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Giao_dien_chuan_comment.py" beforeDir="false" afterPath="$PROJECT_DIR$/Giao_dien_chuan_comment.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0/0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0/4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0/5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/1/0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/1/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/1/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/2/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/2/4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/3/0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/3/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/3/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/3/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/3/4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/3/5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/3/6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/4/0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/4/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/4/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/5/0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/5/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/5/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/5/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/5/4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/5/5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/6/0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/6/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/6/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/6/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/7/0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/7/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/7/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/7/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/7/5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/8/0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/8/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/8/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/8/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/9/0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/9/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/9/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/model_AI_image" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rotated.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/rotated.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/saveExcel.py" beforeDir="false" afterPath="$PROJECT_DIR$/saveExcel.py" afterDir="false" />
-    </list>
+    <list default="true" id="f0c2154d-7d53-4190-a431-70067faf7677" name="Changes" comment="sửa code xuất excel, vẫn còn lỗi&#10;sửa code giao diện phần cho phép chọn các nút lấy dl" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -445,7 +201,7 @@
       <workItem from="1639289033944" duration="31070000" />
       <workItem from="1639449653431" duration="12321000" />
       <workItem from="1639539966508" duration="613000" />
-      <workItem from="1639610437129" duration="4357000" />
+      <workItem from="1639610437129" duration="4697000" />
     </task>
     <task id="LOCAL-00001" summary="commit main and packages">
       <created>1632909438485</created>
@@ -566,7 +322,14 @@
       <option name="project" value="LOCAL" />
       <updated>1639493982009</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="sửa code xuất excel, vẫn còn lỗi&#10;sửa code giao diện phần cho phép chọn các nút lấy dl">
+      <created>1639620285660</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1639620285660</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -608,7 +371,8 @@
     <MESSAGE value="thêm ảnh + sửa code cắt dataset" />
     <MESSAGE value="bỏ code quay thẳng" />
     <MESSAGE value="loop phần vẽ giao diện, thêm code xuất file excel vẫn cần sửa" />
-    <option name="LAST_COMMIT_MESSAGE" value="loop phần vẽ giao diện, thêm code xuất file excel vẫn cần sửa" />
+    <MESSAGE value="sửa code xuất excel, vẫn còn lỗi&#10;sửa code giao diện phần cho phép chọn các nút lấy dl" />
+    <option name="LAST_COMMIT_MESSAGE" value="sửa code xuất excel, vẫn còn lỗi&#10;sửa code giao diện phần cho phép chọn các nút lấy dl" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -622,7 +386,7 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/model_AI_image$Giao_dien_chuan_comment.coverage" NAME="Giao_dien_chuan_comment Coverage Results" MODIFIED="1639620092318" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/model_AI_image$Giao_dien_chuan_comment.coverage" NAME="Giao_dien_chuan_comment Coverage Results" MODIFIED="1639620480603" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/model_AI_image$test.coverage" NAME="test Coverage Results" MODIFIED="1639298242741" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/model_AI_image$masscrop.coverage" NAME="masscrop Coverage Results" MODIFIED="1639382137749" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/model_AI_image$saveExcel.coverage" NAME="saveExcel Coverage Results" MODIFIED="1639399274499" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
