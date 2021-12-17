@@ -62,7 +62,17 @@ def retrain():
       )
   x = np.asarray(image_new)
   y = np.asarray(label_new)
-  model_CP2.fit(x,y , epochs = 50)
+  epochs = 50
+  for i in range(epochs):
+    model_CP2.fit(x,y , epochs = 1)
+
+    # tiến trình được tính tại đây nhá
+
+
+  for jr in listFolder :
+    listimage = os.listdir(path_img_data_new+'/'+jr)
+    for path_im_jr in listimage:
+      os.remove(path_img_data_new+'/'+jr+'/'+path_im_jr)
   print('retrain done')
 
 
