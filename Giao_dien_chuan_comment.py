@@ -264,7 +264,7 @@ class Ui_MainWindow(object):
                     # print('i: ' + str(i) + ' j: ' + str(j))
                     if j == 6 or j == 8:    # Chỉ lấy cột điểm
                         try:
-                            cell_item = self.tbKetqua.item(i, j)
+                            cell_item = self.tbKetqua.item(i + 1, j)
                             if cell_item is None:
                                 score = 0
                             else:
