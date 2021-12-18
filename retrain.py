@@ -3,9 +3,13 @@ import cv2 as cv
 import cv2
 import numpy as np
 import os
-from numpy import vstack
-from numpy import hstack
 from sklearn.utils import shuffle
+from pathlib import Path
+import shutil
+image = []
+label = []
+path = r'img/'
+path_img_data_new = r'cropped/'
 
 
 def convert_image(image):
@@ -30,14 +34,8 @@ def convert_image(image):
     return resized / 255.00
 
 
-image = []
-label = []
-path_img_data_new = r'cropped/'
-listFolder = os.listdir(path_img_data_new)
-
-path = r'img/'
 def load_data():
-    print('retrain running')
+    print('load data')
     listFolder = os.listdir(path)
     for path_Jr in listFolder:
         for path_im in os.listdir(path + path_Jr):
@@ -47,43 +45,58 @@ def load_data():
             image.append(features)
             label.append(np.uint8(path_Jr))
 
+
+    listFolder = os.listdir(path_img_data_new)
     for jr in listFolder:
         listimage = os.listdir(path_img_data_new + '/' + jr)
         for path_im_jr in listimage:
             im = cv2.imread(path_img_data_new + jr + '/' + path_im_jr)
-            cv2.imwrite(r'img/' + path_im_jr, im)
+            lenObj = len(os.listdir(r'img/' + jr))
+            cv2.imwrite(r'img/' + jr + '/' + str(lenObj) + '.jpg', im)
+            # print(r'img/' + jr + '/' + str(lenObj) + '.jpg')
             im = convert_image(im)
             image.append(im)
             label.append(np.uint8(jr))
+    print('load data done')
 
 
-x = np.asarray(image)
-y = np.asarray(label)
-x, y = shuffle(x, y, random_state=0)
-
-
-def train_epoch():
+def load_model():
+    print('Load model')
     model_CP2 = tf.keras.models.load_model('img_train_CP2.h5')
     model_CP2.compile(
         optimizer="adam",
         loss="sparse_categorical_crossentropy",
         metrics=["accuracy"]
     )
+    print('Load model done')
+    return model_CP2
 
+
+model_CP2 = load_model()
+
+
+def train_epoch():
+    x = np.asarray(image)
+    y = np.asarray(label)
     model_CP2.fit(x, y, epochs=1)
 
-    # tiến trình được tính tại đây nhá
 
-    print('retrain done')
-
-
-def remove_folder():
-    for jr in os.listdir():
+def clearn_folder():
+    print('Clearn Data')
+    listFolder = os.listdir(path_img_data_new)
+    for jr in listFolder:
         listimage = os.listdir(path_img_data_new + '/' + jr)
         for path_im_jr in listimage:
             os.remove(path_img_data_new + '/' + jr + '/' + path_im_jr)
-    return "Remove done"
+    print('Clearn data done')
 
 
-load_data()
-train_epoch()
+def save_model():
+    dirpath = Path('model')
+    if dirpath.exists() and dirpath.is_dir():
+        sttmodel = len(os.listdir('model'))
+        model_CP2.save('model/model_version_' + str(sttmodel) + '.H5')
+    else:
+        os.mkdir('model')
+        sttmodel = len(os.listdir('model'))
+        model_CP2.save('model/model_version_' + str(sttmodel) + '.H5')

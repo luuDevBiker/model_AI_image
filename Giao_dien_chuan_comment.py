@@ -3,10 +3,13 @@ from PyQt5.QtWidgets import QFileDialog
 from PyQt5 import QtCore, QtGui, QtWidgets
 import os
 import cv2
-
+import logging
+import threading
+import time
 import deskrewUtils
 import CodeColab2 as CL
 import saveExcel
+import retrain as rt
 
 _path = ''
 list_row = []
@@ -103,13 +106,22 @@ class Ui_MainWindow(object):
         self.lblAnhnhandien_2.setScaledContents(True)
         self.lblAnhnhandien_2.setPixmap(pixmap)
 
+    def on_start(self):
+        self.proTientrinh.setRange(0, 0)
+        self.myLongTask.start()
+
+    def on_finished(self):
+        # Stop the pulsation
+        self.proTientrinh.setRange(0, 100)
+        self.proTientrinh.setValue(100)
+
     def openfile(self):
         global _path
         file_filter = 'Folder();;Image files (*.jpg *.gif)'
         path = QFileDialog.getOpenFileName(filter=file_filter)[0]
         if len(path) == 0:
             return
-        # image = deskrewUtils.deskrew(path, 700)
+        # deskrewUtils.deskrew(path)
         # deskrewUtils.deskrew(path, 700)
         # pixmap = QPixmap('rotated.jpg')
         pixmap = QPixmap(path)
@@ -262,7 +274,7 @@ class Ui_MainWindow(object):
                 row_data = []
                 for j in range(len(header_arr)):
                     # print('i: ' + str(i) + ' j: ' + str(j))
-                    if j == 6 or j == 8:    # Chỉ lấy cột điểm
+                    if j == 6 or j == 8:  # Chỉ lấy cột điểm
                         try:
                             cell_item = self.tbKetqua.item(i + 1, j)
                             if cell_item is None:
@@ -274,7 +286,7 @@ class Ui_MainWindow(object):
                         except Exception as e:
                             print(e)
                     else:
-                        k = j   # code hack do 2 cột ảnh cạnh nhau
+                        k = j  # code hack do 2 cột ảnh cạnh nhau
                         if j == 7:
                             k = 6
                         image = arr_rs[i]['column ' + str(k)]
@@ -342,7 +354,9 @@ class Ui_MainWindow(object):
         self.btTrain = QtWidgets.QPushButton(self.tab)  # tạo button train
         self.btTrain.setGeometry(QtCore.QRect(1340, 200, 120, 35))
         self.btTrain.setObjectName("btTrain")
-        # self.btTrain.clicked.connect()
+        self.btTrain.clicked.connect(self.on_start)
+        self.myLongTask = TaskThread()
+        self.myLongTask.taskFinished.connect(self.on_finished)
 
         self.label_3 = QtWidgets.QLabel(self.tab)  # tạo label  tiến trình
         self.label_3.setGeometry(QtCore.QRect(1260, 310, 61, 35))
@@ -350,7 +364,7 @@ class Ui_MainWindow(object):
 
         self.proTientrinh = QtWidgets.QProgressBar(self.tab)  # tạo progressbar tiến trình
         self.proTientrinh.setGeometry(QtCore.QRect(1100, 360, 400, 35))
-        self.proTientrinh.setProperty("value", 5)
+        self.proTientrinh.setProperty("value", 0)
         self.proTientrinh.setObjectName("proTientrinh")
 
         self.label_4 = QtWidgets.QLabel(self.tab)  # tạo label hiển thị số trang 1/9
@@ -536,6 +550,27 @@ class Ui_MainWindow(object):
         self.pushButton_2.setText(_translate("MainWindow", "Mới"))
         self.btSudung.setText(_translate("MainWindow", "Sử dụng cấu hình"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), _translate("MainWindow", "Cấu hình"))
+
+
+class TaskThread(QtCore.QThread):
+    taskFinished = QtCore.pyqtSignal()
+
+    def train_model(self):
+        try:
+            rt.load_model()
+            rt.load_data()
+            epochs = 10
+
+            for e in range(epochs + 1):
+                rt.train_epoch()
+            rt.save_model()
+        except Exception as e:
+            print(e)
+
+    def run(self):
+        self.train_model()
+        time.sleep(3)
+        self.taskFinished.emit()
 
 
 if __name__ == "__main__":
