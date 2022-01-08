@@ -3,7 +3,7 @@ import cv2 as cv
 import cv2
 import numpy as np
 import os
-from sklearn.utils import shuffle
+# from sklearn.utils import shuffle
 from pathlib import Path
 import shutil
 image = []

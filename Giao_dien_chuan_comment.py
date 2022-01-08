@@ -117,18 +117,18 @@ class Ui_MainWindow(object):
 
     def openfile(self):
         global _path
-        file_filter = 'Folder();;Image files (*.jpg *.gif)'
-        path = QFileDialog.getOpenFileName(filter=file_filter)[0]
-        if len(path) == 0:
+        file_filter = 'Folder();;Image files (*.jpg *.png)'
+        path = QFileDialog.getOpenFileName(filter=file_filter)
+        # print(path)
+        # print(path[0])
+        if len(path[0]) == 0:
             return
-        # deskrewUtils.deskrew(path)
-        # deskrewUtils.deskrew(path, 700)
-        # pixmap = QPixmap('rotated.jpg')
-        pixmap = QPixmap(path)
-        self.lblAnhnhandien.setPixmap(pixmap)
+        pixmap = QPixmap(path[0]) #https://codelungtung.wordpress.com/2019/08/14/tao-gui-voi-pyside/
         self.lblAnhnhandien.setScaledContents(True)
+        self.lblAnhnhandien.setPixmap(pixmap)
+        self.btxoay.setEnabled(True)
         self.btTrichxuat.setEnabled(True)
-        _path = path
+        _path = path[0]
         # _path = 'rotated.jpg'
 
     def convert_nparray_to_qpixmap(self, img):
@@ -141,6 +141,23 @@ class Ui_MainWindow(object):
         qpixmap = QPixmap(qimg)
 
         return qpixmap
+
+    def xoayanh(self):
+        try:
+            src = cv2.imread(_path)
+            image = cv2.rotate(src, cv2.ROTATE_180)
+            # print(_path)
+            # print("aaaa")
+            # print(os.path.basename(_path))
+            # print("ul")
+            cv2.imwrite(_path, image)
+            pixmap = QPixmap(_path)
+            self.lblAnhnhandien.setScaledContents(True)
+            self.lblAnhnhandien.setPixmap(pixmap)
+            # self.btxoay.setEnabled(True)
+            # self.btTrichxuat.setEnabled(True)
+        except Exception as e:
+            print('error Save image : ', e)
 
     def save_image_in_table(self):
         global list_row
@@ -438,6 +455,12 @@ class Ui_MainWindow(object):
         self.btTrichxuat.setEnabled(False)
         self.btTrichxuat.clicked.connect(self.train)
 
+        self.btxoay = QtWidgets.QPushButton(self.tab_2)  # button xoay
+        self.btxoay.setGeometry(QtCore.QRect(70, 800, 93, 28))
+        self.btxoay.setEnabled(False)
+        self.btxoay.setObjectName("btxoay")
+        self.btxoay.clicked.connect(self.xoayanh)
+
         self.btSave = QtWidgets.QPushButton(self.tab_2)  # button save
         self.btSave.setGeometry(QtCore.QRect(320, 850, 93, 28))
         self.btSave.setObjectName("btSave")
@@ -532,11 +555,12 @@ class Ui_MainWindow(object):
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("MainWindow", "Dạy máy"))
         self.btOpenfile.setText(_translate("MainWindow", "Open File"))
         self.label_5.setText(_translate("MainWindow", "Ảnh nhận diện:"))
-        # self.lblAnhnhandien.setText(_translate("MainWindow", "<html><head/><body><p><img src=\"Anh/anh_mau_1.jpg\" widght = \"320\" height = \"360\"/></p></body></html>"))
+        self.lblAnhnhandien.setText(_translate("MainWindow", "Label hiển thị ảnh"))
         __sortingEnabled = self.tbKetqua.isSortingEnabled()
 
         self.tbKetqua.setSortingEnabled(__sortingEnabled)
         self.btTrichxuat.setText(_translate("MainWindow", "Trích xuất"))
+        self.btxoay.setText(_translate("MainWindow", "xoay"))
         self.btSave.setText(_translate("MainWindow", "Lưu"))
         self.btXuatExel.setText(_translate("MainWindow", "Xuất Excel"))
         self.label_6.setText(_translate("MainWindow", "Dữ liệu nhận được: "))
